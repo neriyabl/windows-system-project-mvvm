@@ -11,6 +11,10 @@ namespace DAL
 {
     public class ProjectContext : DbContext
     {
+        public ProjectContext() : base("projectDB")
+        {
+            
+        }
         public DbSet<Event> Events { get; set; }
         public DbSet<Report> Reports { get; set; }
     }

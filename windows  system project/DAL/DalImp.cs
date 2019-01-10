@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +16,11 @@ namespace DAL
         /// add new event to the table
         /// </summary>
         /// <param name="_event"> the new event </param>
+        /// <exception>throw exception if the id already exist</exception>
         public void AddEvent(Event _event)
         {
+            if(GetEvent(_event.Id)!=null)
+                throw new Exception("the event id already exist");
             using (var db = new ProjectContext())
             {
                 db.Events.Add(_event);
@@ -48,12 +52,12 @@ namespace DAL
         /// <exception>throw exception if the event id to update not found</exception>
         public void UpdateEvent(Event _event)
         {
-            var eventToUpdate = GetEvent(_event.Id);
-            if (eventToUpdate == null)
+            if (GetEvent(_event.Id) == null)
                 throw new Exception("the event to update not gound");
             using (var db = new ProjectContext())
             {
-                eventToUpdate = _event;
+                db.Entry(_event);
+                db.Events.AddOrUpdate(_event);
                 db.SaveChanges();
             }
 
@@ -94,7 +98,7 @@ namespace DAL
 
         public void AddReport(Event _event)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void RemoveReport(int id)
