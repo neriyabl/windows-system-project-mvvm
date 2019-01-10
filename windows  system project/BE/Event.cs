@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,9 @@ namespace BE
         [Key]
         public int Id { get; set; }
         public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-        public double RealLAtitude { get; set; }
-        public double RealLongitude { get; set; }
-
+        public GeoCoordinate RealLocation { get; set; }
+        public GeoCoordinate CalculateLocation { get; set; }
+        
         public ICollection<Report> Reports { get; set; }
     }
 }
