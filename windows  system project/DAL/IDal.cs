@@ -18,7 +18,6 @@ namespace DAL
         Event GetEvent(int id);
         #endregion
 
-
         #region Report methods
         void AddReport(Event _event);
         void RemoveReport(int id);
