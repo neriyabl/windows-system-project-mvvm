@@ -33,7 +33,7 @@ namespace DAL
 
         /// <summary>
         /// remove event by event id
-        /// if not fount do nothing
+        /// if not found do nothing
         /// </summary>
         /// <param name="id">the event id to remove</param>
         public void RemoveEvent(int id)
@@ -138,7 +138,7 @@ namespace DAL
 
         /// <summary>
         /// remove report by event id
-        /// if not fount do nothing
+        /// if not found do nothing
         /// </summary>
         /// <param name="id">the report id to remove</param>
         public void RemoveReport(int? id)
