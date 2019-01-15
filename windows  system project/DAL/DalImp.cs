@@ -125,22 +125,27 @@ namespace DAL
             }
         }
 
-        public void RemoveReport(int? id)
+        public void RemoveReport(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateReport(Event _event)
+        public void UpdateReport(Report report)
         {
             throw new NotImplementedException();
         }
 
-        public List<Event> GetReports(Predicate<Event> predicate = null)
+        public List<Report> GetReports(Predicate<Report> predicate = null)
         {
             throw new NotImplementedException();
         }
 
-        public Event GetReport(int? id)
+        public Task<List<Report>> GetReportsAsync(Predicate<Report> predicate = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Report GetReport(int? id)
         {
             throw new NotImplementedException();
         }

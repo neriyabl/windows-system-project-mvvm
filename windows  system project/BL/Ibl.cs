@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.PerformanceData;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BE;
 
-namespace DAL
+namespace BL
 {
-    public interface IDal
+    public interface IBl
     {
         #region Event methods
         void AddEvent(Event _event);
@@ -27,6 +26,5 @@ namespace DAL
         Task<List<Report>> GetReportsAsync(Predicate<Report> predicate = null);
         Report GetReport(int? id);
         #endregion
-
     }
 }
