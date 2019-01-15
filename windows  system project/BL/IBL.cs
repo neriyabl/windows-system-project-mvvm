@@ -20,7 +20,7 @@ namespace BL
 
         #region Report methods
         void AddReport(Report report);
-        void RemoveReport(int? id);
+        void RemoveReport(int id);
         void UpdateReport(Report report);
         List<Report> GetReports(Predicate<Report> predicate = null);
         Task<List<Report>> GetReportsAsync(Predicate<Report> predicate = null);
