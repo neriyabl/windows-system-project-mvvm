@@ -12,7 +12,7 @@ namespace BE
     public class Event
     {
         [Key]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public DateTime StartTime { get; set; }
         public DbGeography RealLocation { get; set; }
         public DbGeography CalculateLocation { get; set; }

@@ -15,15 +15,16 @@ namespace DAL
         void RemoveEvent(int id);
         void UpdateEvent(Event _event);
         List<Event> GetEvents(Predicate<Event> predicate = null);
-        Event GetEvent(int id);
+        Task<List<Event>> GetEventsAsync(Predicate<Event> predicate = null);
+        Event GetEvent(int? id);
         #endregion
 
         #region Report methods
-        void AddReport(Event _event);
-        void RemoveReport(int id);
+        void AddReport(Report report);
+        void RemoveReport(int? id);
         void UpdateReport(Event _event);
         List<Event> GetReports(Predicate<Event> predicate = null);
-        Event GetReport(int id);
+        Event GetReport(int? id);
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,10 @@ namespace DAL
         /// <exception>throw exception if the id already exist</exception>
         public void AddEvent(Event _event)
         {
-            if(GetEvent(_event.Id)!=null)
-                throw new Exception("the event id already exist");
+            if (_event.Id != null && GetEvent(_event.Id) != null)
+            {
+                throw new Exception("the event already exist");
+            }
             using (var db = new ProjectContext())
             {
                 db.Events.Add(_event);
@@ -53,7 +56,7 @@ namespace DAL
         public void UpdateEvent(Event _event)
         {
             if (GetEvent(_event.Id) == null)
-                throw new Exception("the event to update not gound");
+                throw new Exception("the event to update not found");
             using (var db = new ProjectContext())
             {
                 db.Entry(_event);
@@ -80,12 +83,24 @@ namespace DAL
             return events;
         }
 
+        public async Task<List<Event>> GetEventsAsync(Predicate<Event> predicate = null)
+        {
+            List<Event> events;
+            using (var db = new ProjectContext())
+            {
+                events = await (from _event in db.Events
+                                where predicate == null || predicate(_event)
+                                select _event).ToListAsync();
+            }
+            return events;
+        }
+
         /// <summary>
         /// get event by id
         /// </summary>
         /// <param name="id">the event id</param>
         /// <returns>the event</returns>
-        public Event GetEvent(int id)
+        public Event GetEvent(int? id)
         {
             Event _event;
             using (var db = new ProjectContext())
@@ -96,12 +111,21 @@ namespace DAL
         }
         #endregion
 
-        public void AddReport(Event _event)
+        #region Report methods
+        public void AddReport(Report report)
         {
-            
+            if (report.Id != null && GetReport(report.Id) != null)
+            {
+                throw new Exception("the report already exist");
+            }
+            using (var db = new ProjectContext())
+            {
+                db.Reports.Add(report);
+                db.SaveChanges();
+            }
         }
 
-        public void RemoveReport(int id)
+        public void RemoveReport(int? id)
         {
             throw new NotImplementedException();
         }
@@ -116,9 +140,12 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Event GetReport(int id)
+        public Event GetReport(int? id)
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
     }
 }
