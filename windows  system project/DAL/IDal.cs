@@ -22,9 +22,10 @@ namespace DAL
         #region Report methods
         void AddReport(Report report);
         void RemoveReport(int? id);
-        void UpdateReport(Event _event);
-        List<Event> GetReports(Predicate<Event> predicate = null);
-        Event GetReport(int? id);
+        void UpdateReport(Report _event);
+        List<Report> GetReports(Predicate<Report> predicate = null);
+        Task<List<Report>> GetReportsAsync(Predicate<Report> predicate = null);
+        Report GetReport(int? id);
         #endregion
     }
 }

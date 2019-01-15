@@ -33,7 +33,7 @@ namespace DAL
 
         /// <summary>
         /// remove event by event id
-        /// if not fount do nuthing
+        /// if not fount do nothing
         /// </summary>
         /// <param name="id">the event id to remove</param>
         public void RemoveEvent(int id)
@@ -48,8 +48,8 @@ namespace DAL
         }
 
         /// <summary>
-        /// update the event by find the old one whith the id
-        /// and replace whith the new one
+        /// update the event by find the old one with the id
+        /// and replace with the new one
         /// </summary>
         /// <param name="_event">the new event to replace</param>
         /// <exception>throw exception if the event id to update not found</exception>
@@ -83,6 +83,11 @@ namespace DAL
             return events;
         }
 
+        /// <summary>
+        /// get the all events or events by conditions asynchronously
+        /// </summary>
+        /// <param name="predicate">the condition predicat</param>
+        /// <returns>list of the relevant events</returns>
         public async Task<List<Event>> GetEventsAsync(Predicate<Event> predicate = null)
         {
             List<Event> events;
@@ -112,6 +117,12 @@ namespace DAL
         #endregion
 
         #region Report methods
+
+        /// <summary>
+        /// add new report to the table
+        /// </summary>
+        /// <param name="_event"> the new event </param>
+        /// <exception>throw exception if the id already exist</exception>
         public void AddReport(Report report)
         {
             if (report.Id != null && GetReport(report.Id) != null)
@@ -125,24 +136,87 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// remove report by event id
+        /// if not fount do nothing
+        /// </summary>
+        /// <param name="id">the report id to remove</param>
         public void RemoveReport(int? id)
         {
-            throw new NotImplementedException();
+            var reportToRemove = GetReport(id);
+            if (reportToRemove == null) return;
+            using (var db = new ProjectContext())
+            {
+                db.Reports.Remove(reportToRemove);
+                db.SaveChanges();
+            }
         }
 
-        public void UpdateReport(Event _event)
+        /// <summary>
+        /// update the report by find the old one with the id
+        /// and replace with the new one
+        /// </summary>
+        /// <param name="_event">the new report to replace</param>
+        /// <exception>throw exception if the report id to update not found</exception>
+        public void UpdateReport(Report _report)
         {
-            throw new NotImplementedException();
+            if (GetReport(_report.Id) == null)
+                throw new Exception("the report to update not found");
+            using (var db = new ProjectContext())
+            {
+                db.Entry(_report);
+                db.Reports.AddOrUpdate(_report);
+                db.SaveChanges();
+            }
         }
 
-        public List<Event> GetReports(Predicate<Event> predicate = null)
+        /// <summary>
+        /// get the all reports or reports by conditions
+        /// </summary>
+        /// <param name="predicate">the condition predicat</param>
+        /// <returns>list of the relevant reports</returns>
+        public List<Report> GetReports(Predicate<Report> predicate = null)
         {
-            throw new NotImplementedException();
+            List<Report> reports;
+            using (var db = new ProjectContext())
+            {
+                reports = (from _report in db.Reports
+                           where predicate == null || predicate(_report)
+                           select _report).ToList();
+            }
+            return reports;
         }
 
-        public Event GetReport(int? id)
+        /// <summary>
+        /// get the all reports or reports by conditions asynchronously
+        /// </summary>
+        /// <param name="predicate">the condition predicat</param>
+        /// <returns>list of the relevant reports</returns> 
+        public async Task<List<Report>> GetReportsAsync(Predicate<Report> predicate = null)
         {
-            throw new NotImplementedException();
+            List<Report> reports;
+            using (var db = new ProjectContext())
+            {
+                reports = await (from _report in db.Reports
+                                 where predicate == null || predicate(_report)
+                                 select _report).ToListAsync();
+            }
+            return reports;
+        }
+
+        /// <summary>
+        /// get report by id
+        /// </summary>
+        /// <param name="id">the report id</param>
+        /// <returns>the report</returns>
+        public Report GetReport(int? id)
+        {
+            Report _report;
+            using (var db = new ProjectContext())
+            {
+                _report = db.Reports.SingleOrDefault(r => r.Id == id);
+            }
+            return _report;
         }
 
         #endregion
