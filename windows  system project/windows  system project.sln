@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{33E1BB1D-EF8A-4AE6-82CB-AD7F6AEA173D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmWpf", "MvvmWpf\MvvmWpf.csproj", "{7F0E0A94-DFA2-4878-B95C-C81110EF6DE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{33E1BB1D-EF8A-4AE6-82CB-AD7F6AEA173D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33E1BB1D-EF8A-4AE6-82CB-AD7F6AEA173D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33E1BB1D-EF8A-4AE6-82CB-AD7F6AEA173D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F0E0A94-DFA2-4878-B95C-C81110EF6DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0E0A94-DFA2-4878-B95C-C81110EF6DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0E0A94-DFA2-4878-B95C-C81110EF6DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0E0A94-DFA2-4878-B95C-C81110EF6DE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
