@@ -11,8 +11,8 @@ namespace DAL
 {
     internal class DalImp : IDal
     {
-
         #region Event methods
+
         /// <summary>
         /// add new event to the table
         /// </summary>
@@ -20,7 +20,7 @@ namespace DAL
         /// <exception>throw exception if the id already exist</exception>
         public void AddEvent(Event _event)
         {
-            if (_event.Id != null && GetEvent(_event.Id) != null)
+            if (_event.Id != 0 && GetEvent(_event.Id) != null)
             {
                 throw new Exception("the event already exist");
             }
@@ -63,7 +63,6 @@ namespace DAL
                 db.Events.AddOrUpdate(_event);
                 db.SaveChanges();
             }
-
         }
 
         /// <summary>
@@ -77,8 +76,8 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 events = (from _event in db.Events
-                          where predicate == null || predicate(_event)
-                          select _event).ToList();
+                    where predicate == null || predicate(_event)
+                    select _event).ToList();
             }
             return events;
         }
@@ -94,8 +93,8 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 events = await (from _event in db.Events
-                                where predicate == null || predicate(_event)
-                                select _event).ToListAsync();
+                    where predicate == null || predicate(_event)
+                    select _event).ToListAsync();
             }
             return events;
         }
@@ -114,6 +113,7 @@ namespace DAL
             }
             return _event;
         }
+
         #endregion
 
         #region Report methods
@@ -121,7 +121,7 @@ namespace DAL
         /// <summary>
         /// add new report to the table
         /// </summary>
-        /// <param name="_event"> the new event </param>
+        /// <param name="report"> the new event </param>
         /// <exception>throw exception if the id already exist</exception>
         public void AddReport(Report report)
         {
@@ -156,16 +156,16 @@ namespace DAL
         /// update the report by find the old one with the id
         /// and replace with the new one
         /// </summary>
-        /// <param name="_event">the new report to replace</param>
+        /// <param name="report">the new report to replace</param>
         /// <exception>throw exception if the report id to update not found</exception>
-        public void UpdateReport(Report _report)
+        public void UpdateReport(Report report)
         {
-            if (GetReport(_report.Id) == null)
+            if (GetReport(report.Id) == null)
                 throw new Exception("the report to update not found");
             using (var db = new ProjectContext())
             {
-                db.Entry(_report);
-                db.Reports.AddOrUpdate(_report);
+                db.Entry(report);
+                db.Reports.AddOrUpdate(report);
                 db.SaveChanges();
             }
         }
@@ -180,9 +180,9 @@ namespace DAL
             List<Report> reports;
             using (var db = new ProjectContext())
             {
-                reports = (from _report in db.Reports
-                           where predicate == null || predicate(_report)
-                           select _report).ToList();
+                reports = (from report in db.Reports
+                    where predicate == null || predicate(report)
+                    select report).ToList();
             }
             return reports;
         }
@@ -197,9 +197,9 @@ namespace DAL
             List<Report> reports;
             using (var db = new ProjectContext())
             {
-                reports = await (from _report in db.Reports
-                                 where predicate == null || predicate(_report)
-                                 select _report).ToListAsync();
+                reports = await (from report in db.Reports
+                    where predicate == null || predicate(report)
+                    select report).ToListAsync();
             }
             return reports;
         }
@@ -211,15 +211,14 @@ namespace DAL
         /// <returns>the report</returns>
         public Report GetReport(int? id)
         {
-            Report _report;
+            Report report;
             using (var db = new ProjectContext())
             {
-                _report = db.Reports.SingleOrDefault(r => r.Id == id);
+                report = db.Reports.SingleOrDefault(r => r.Id == id);
             }
-            return _report;
+            return report;
         }
 
         #endregion
-
     }
 }

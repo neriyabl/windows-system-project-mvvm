@@ -38,3 +38,45 @@ C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  s
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\MvvmWpfApp\bin\Debug\EntityFramework.xml
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\MvvmWpfApp\obj\Debug\Views\NewReportFormView.g.cs
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\MvvmWpfApp\obj\Debug\Views\NewReportFormView.baml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MvvmWpfApp.exe.config
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MvvmWpfApp.exe
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MvvmWpfApp.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\BE.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\log4net.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MvvmDialogs.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Xceed.Wpf.DataGrid.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Xceed.Wpf.Toolkit.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\EntityFramework.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\BE.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\BE.dll.config
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\log4net.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MvvmDialogs.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\EntityFramework.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp.csprojResolveAssemblyReference.cache
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\About.g.cs
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\MainWindow.g.cs
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\NewReportFormView.g.cs
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\App.g.cs
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp_MarkupCompile.cache
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp_MarkupCompile.lref
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\About.baml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\MainWindow.baml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\NewReportFormView.baml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp.g.resources
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp.exe
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp.pdb
