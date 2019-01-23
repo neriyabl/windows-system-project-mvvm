@@ -43,5 +43,21 @@ namespace MvvmWpfApp.Views
             */
             Log.Info("Closing App");
         }
+
+        private void SelectedTabChange(object sender, RoutedEventArgs e)
+        {
+            int index = int.Parse(((Button)e.Source).Uid);
+
+            GridCursor.Margin = new Thickness((150 * index), 0, 0, 0);
+
+            if (index == 0)
+            {
+                ReportFormView.Visibility = Visibility.Visible;
+            }
+            else if (index == 1)
+            {
+                ReportFormView.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }

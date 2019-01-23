@@ -88,3 +88,8 @@ C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Mate
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignColors.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Dragablz.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Dragablz.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Dragablz.xml

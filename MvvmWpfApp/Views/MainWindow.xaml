@@ -10,17 +10,20 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:md="https://github.com/fantasticfiasco/mvvm-dialogs"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
         md:DialogServiceViews.IsRegistered="True"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="350" Width="525"
-        WindowState="Normal">
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{Binding Title}"
+        WindowState="Maximized">
 
     <Window.Resources>
         <!-- Insert here your Data Templates -->
         <DataTemplate x:Key="SampleTemplate">
             <StackPanel/>
         </DataTemplate>
-        
+
     </Window.Resources>
     <Window.InputBindings>
         <!-- Example of Keyboard shortcuts -->
@@ -33,23 +36,32 @@
 
     <DockPanel>
         <!-- File Menu -->
-        <Menu DockPanel.Dock="Top" Margin="0,0,0.4,0">
-            <MenuItem Header="File">
-                <MenuItem Header="New" Command="{Binding NewCmd}" InputGestureText="Ctrl+N" />
-                <MenuItem Header="Open" Command="{Binding OpenCmd}" InputGestureText="Ctrl+O" />
-                <MenuItem Header="Save" Command="{Binding SaveCmd}" InputGestureText="Ctrl+S" />
-                <MenuItem Header="Save As" Command="{Binding SaveAsCmd}" InputGestureText="Ctrl+Shift+S"/>
-                <Separator />
-                <MenuItem Header="Exit" Command="{Binding ExitCmd}" InputGestureText="Alt+F4"/>
-            </MenuItem>
-            <MenuItem Header="About" Command="{Binding ShowAboutDialogCmd}"/>
-        </Menu>
+        <Grid DockPanel.Dock="Top"  Background="{DynamicResource PrimaryHueLightBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top">
+                <Button Uid="0" Width="150" Content="CONTROL ROOM" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource PrimaryHueDarkBrush}" Click="SelectedTabChange"/>
+                <Button Uid="1" Width="150" Content="ANALYTIC" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource PrimaryHueDarkBrush}" Click="SelectedTabChange"/>
+           </StackPanel>
+            <Grid Grid.Column="0" x:Name="GridCursor" Width="150" Height="5" VerticalAlignment="Bottom" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Left"/>
+            <!--<Menu Margin="0,0,0.4,0" Grid.Column="1">
+                <MenuItem Header="File">
+                    <MenuItem Header="New" Command="{Binding NewCmd}" InputGestureText="Ctrl+N" />
+                    <MenuItem Header="Open" Command="{Binding OpenCmd}" InputGestureText="Ctrl+O" />
+                    <MenuItem Header="Save" Command="{Binding SaveCmd}" InputGestureText="Ctrl+S" />
+                    <MenuItem Header="Save As" Command="{Binding SaveAsCmd}" InputGestureText="Ctrl+Shift+S"/>
+                    <Separator />
+                    <MenuItem Header="Exit" Command="{Binding ExitCmd}" InputGestureText="Alt+F4"/>
+                </MenuItem>
+                <MenuItem Header="About" Command="{Binding ShowAboutDialogCmd}"/>
+            </Menu>-->
+        </Grid>
 
         <StackPanel>
             <!-- Place here your content -->
-            <materialDesign:Card Padding="32" Margin="16">
-                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
-            </materialDesign:Card>
+            <local:NewReportFormView x:Name="ReportFormView"/>
         </StackPanel>
     </DockPanel>
 </Window>
