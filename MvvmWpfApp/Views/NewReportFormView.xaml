@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MvvmWpfApp.Views"
-             xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="MvvmWpfApp.Views.NewReportFormView"
+             xmlns:BE="clr-namespace:BE;assembly=BE"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             x:Class="MvvmWpfApp.Views.NewReportFormView"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
     <UserControl.Resources>
@@ -25,18 +27,18 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Address:"/>
-            <TextBox x:Name="addressTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Age:"/>
-            <TextBox x:Name="ageTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Name:"/>
-            <TextBox x:Name="nameTextBox" Width="120" VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Noise Intensity:"/>
-            <TextBox x:Name="noiseIntensityTextBox" Width="120" VerticalAlignment="Center" Text="{Binding NoiseIntensity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Num Of Explosions:"/>
-            <TextBox x:Name="numOfExplosionsTextBox" Width="120" VerticalAlignment="Center" Text="{Binding NumOfExplosions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
-            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Time:"/>
-            <DatePicker x:Name="timeDatePicker" VerticalAlignment="Center" SelectedDate="{Binding Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" Grid.Column="0" Content="Address:"/>
+            <TextBox mah:TextBoxHelper.Watermark="address" mah:TextBoxHelper.ClearTextButton="True" x:Name="AddressTextBox" Width="130" VerticalAlignment="Center" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" Grid.Column="0" Content="Age:"/>
+            <TextBox mah:TextBoxHelper.Watermark="address" mah:TextBoxHelper.ClearTextButton="True" x:Name="AgeTextBox" Width="130" VerticalAlignment="Center" Text="{Binding Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" Grid.Column="0" Content="Name:"/>
+            <TextBox mah:TextBoxHelper.Watermark="address" mah:TextBoxHelper.ClearTextButton="True" x:Name="NameTextBox" Width="130" VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" Grid.Column="0" Content="Noise Intensity:"/>
+            <TextBox mah:TextBoxHelper.Watermark="address" mah:TextBoxHelper.ClearTextButton="True" x:Name="NoiseIntensityTextBox" Width="130" VerticalAlignment="Center" Text="{Binding NoiseIntensity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" Grid.Column="0" Content="Num Of Explosions:"/>
+            <TextBox mah:TextBoxHelper.Watermark="address" mah:TextBoxHelper.ClearTextButton="True" x:Name="NumOfExplosionsTextBox" Width="130" VerticalAlignment="Center" Text="{Binding NumOfExplosions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" Grid.Column="0" Content="Time:"/>
+            <DatePicker x:Name="timeDatePicker" VerticalAlignment="Center" Width="130" SelectedDate="{Binding Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
         </Grid>
 
     </Grid>
