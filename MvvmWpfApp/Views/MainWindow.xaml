@@ -1,4 +1,4 @@
-﻿<Controls:MetroWindow  x:Class="MvvmWpfApp.Views.MainWindow"
+﻿<Window  x:Class="MvvmWpfApp.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
         xmlns:system="clr-namespace:System;assembly=mscorlib"
@@ -9,7 +9,7 @@
         xmlns:localModels="clr-namespace:MvvmWpfApp.Models"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:md="https://github.com/fantasticfiasco/mvvm-dialogs"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         md:DialogServiceViews.IsRegistered="True"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="350" Width="525"
@@ -47,6 +47,9 @@
 
         <StackPanel>
             <!-- Place here your content -->
+            <materialDesign:Card Padding="32" Margin="16">
+                <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
+            </materialDesign:Card>
         </StackPanel>
     </DockPanel>
-</Controls:MetroWindow>
+</Window>

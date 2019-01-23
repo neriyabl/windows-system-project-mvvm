@@ -81,11 +81,10 @@ C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Mvvm
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp.exe
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\MvvmWpfApp.pdb
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\ControlzEx.dll
-C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MahApps.Metro.dll
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\ControlzEx.pdb
-C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MahApps.Metro.pdb
-C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MahApps.Metro.xml
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\App.baml
-C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Resources\Icons.baml
-C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Resources\IconsNonShared.baml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignColors.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\MaterialDesignThemes.Wpf.xml

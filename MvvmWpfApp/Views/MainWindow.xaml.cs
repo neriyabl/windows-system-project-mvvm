@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Reflection;
 using log4net;
-using MahApps.Metro.Controls;
 
 
 namespace MvvmWpfApp.Views
@@ -22,7 +21,7 @@ namespace MvvmWpfApp.Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow
+    public partial class MainWindow: Window
     {
         private static readonly ILog Log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
