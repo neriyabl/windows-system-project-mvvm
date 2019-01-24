@@ -36,16 +36,16 @@
 
     <DockPanel>
         <!-- File Menu -->
-        <Grid DockPanel.Dock="Top"  Background="{DynamicResource PrimaryHueLightBrush}">
+        <Grid DockPanel.Dock="Top"  Background="{DynamicResource PrimaryHueMidBrush}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top">
-                <Button Uid="0" Width="150" Content="CONTROL ROOM" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource PrimaryHueDarkBrush}" Click="SelectedTabChange"/>
-                <Button Uid="1" Width="150" Content="ANALYTIC" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource PrimaryHueDarkBrush}" Click="SelectedTabChange"/>
+                <Button Uid="0" Width="150" Content="CONTROL ROOM" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource PrimaryHueDarkForegroundBrush}" Click="SelectedTabChange"/>
+                <Button Uid="1" Width="150" Content="ANALYTIC" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{StaticResource PrimaryHueDarkForegroundBrush}" Click="SelectedTabChange"/>
            </StackPanel>
-            <Grid Grid.Column="0" x:Name="GridCursor" Width="150" Height="5" VerticalAlignment="Bottom" Background="{StaticResource PrimaryHueDarkBrush}" HorizontalAlignment="Left"/>
+            <Grid Grid.Column="0" x:Name="GridCursor" Width="150" Height="5" VerticalAlignment="Bottom" Background="{StaticResource PrimaryHueDarkForegroundBrush}" HorizontalAlignment="Left"/>
             <!--<Menu Margin="0,0,0.4,0" Grid.Column="1">
                 <MenuItem Header="File">
                     <MenuItem Header="New" Command="{Binding NewCmd}" InputGestureText="Ctrl+N" />
