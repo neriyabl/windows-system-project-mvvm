@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MvvmWpfApp.ViewModels
 {
-    class NewReportFormVM
+    public class NewReportFormVM
     {
     }
 }

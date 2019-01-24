@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BE;
+using MvvmWpfApp.ViewModels;
 
 namespace MvvmWpfApp.Views
 {
@@ -22,9 +24,13 @@ namespace MvvmWpfApp.Views
     /// </summary>
     public partial class NewReportFormView : UserControl, INotifyPropertyChanged
     {
+        public NewReportFormVM ReportFormVm { get; set; }
+
         public NewReportFormView()
         {
             InitializeComponent();
+            ReportFormVm = new NewReportFormVM();
+            DataContext = ReportFormVm;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -43,6 +49,11 @@ namespace MvvmWpfApp.Views
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void resetForm(object sender, EventArgs e)
+        {
+            ReportFormVm = new NewReportFormVM();
         }
     }
 }

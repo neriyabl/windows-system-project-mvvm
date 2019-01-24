@@ -7,6 +7,7 @@
              xmlns:BE="clr-namespace:BE;assembly=BE"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:Controls="clr-namespace:MvvmWpfApp.Controls"
              x:Class="MvvmWpfApp.Views.NewReportFormView"
              mc:Ignorable="d" 
              Background="{DynamicResource MaterialDesignPaper}"
@@ -14,41 +15,49 @@
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Medium"
              TextElement.FontSize="18"
-             d:DesignHeight="300" d:DesignWidth="400" Loaded="UserControl_Loaded">
+             d:DesignHeight="700" d:DesignWidth="400" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <CollectionViewSource x:Key="ReportViewSource" d:DesignSource="{d:DesignInstance {x:Type BE:Report}, CreateList=True}"/>
     </UserControl.Resources>
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight}">
-        <materialDesign:Card  Margin="10" Padding="10" HorizontalAlignment="Left">
-        <Grid>
-            <Grid x:Name="Grid1" VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{StaticResource ReportViewSource}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" Grid.Column="0" Content="Address:"/>
-                <TextBox x:Name="AddressTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
-                <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" Grid.Column="0" Content="Age:"/>
-                <TextBox x:Name="AgeTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
-                <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" Grid.Column="0" Content="Name:"/>
-                <TextBox x:Name="NameTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
-                <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" Grid.Column="0" Content="Noise Intensity:"/>
-                <TextBox x:Name="NoiseIntensityTextBox" Width="150" VerticalAlignment="Center" Text="{Binding NoiseIntensity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
-                <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" Grid.Column="0" Content="Num Of Explosions:"/>
-                <TextBox x:Name="NumOfExplosionsTextBox" Width="150" VerticalAlignment="Center" Text="{Binding NumOfExplosions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
-                <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" Grid.Column="0" Content="Time:"/>
-                <DatePicker x:Name="TimeDatePicker" VerticalAlignment="Center" Width="150" SelectedDate="{Binding Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
-            </Grid>
-
-        </Grid>
-    </materialDesign:Card>
-        </materialDesign:TransitioningContent>
+        <materialDesign:Card  Margin="10" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                <Grid  Margin="10" x:Name="Grid1" VerticalAlignment="Center" HorizontalAlignment="Center" DataContext="{StaticResource ReportViewSource}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" Grid.Column="0" Content="Address:"/>
+                    <TextBox x:Name="AddressTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" Grid.Column="0" Content="Age:"/>
+                    <TextBox x:Name="AgeTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" Grid.Column="0" Content="Name:"/>
+                    <TextBox x:Name="NameTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" Grid.Column="0" Content="Noise Intensity:"/>
+                    <TextBox x:Name="NoiseIntensityTextBox" Width="150" VerticalAlignment="Center" Text="{Binding NoiseIntensity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" Grid.Column="0" Content="Num Of Explosions:"/>
+                    <TextBox x:Name="NumOfExplosionsTextBox" Width="150" VerticalAlignment="Center" Text="{Binding NumOfExplosions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" Grid.Column="0" Content="Time:"/>
+                    <DatePicker x:Name="TimeDatePicker" VerticalAlignment="Center" Width="150" SelectedDate="{Binding Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+                </Grid>
+                <Separator/>
+                <DockPanel Margin="3">
+                    <Controls:ActionButton 
+                        DockPanel.Dock="Right" Text="SAVE" State="origin"
+                        Icon="ContentSave" Style="{StaticResource MaterialDesignRaisedButton}"/>
+                    <Controls:ActionButton 
+                        DockPanel.Dock="Right" HorizontalAlignment="Right" ButtonClick="resetForm"
+                        Text="CANCEL" State="flat" Icon="Cancel" Style="{StaticResource MaterialDesignFlatButton}"/>
+                </DockPanel>
+            </StackPanel>
+        </materialDesign:Card>
+    </materialDesign:TransitioningContent>
 </UserControl>
