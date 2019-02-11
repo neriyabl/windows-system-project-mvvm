@@ -20,14 +20,29 @@ namespace MvvmWpfApp.ViewModels
 
         public NewReportFormModel FormModel { get; set; }
 
-        public RelayCommand<NewReportFormModel> AddReportCommand { get; } = 
+        public RelayCommand<NewReportFormModel> AddReportCommand { get; set; } =
             new RelayCommand<NewReportFormModel>(formModel =>
-            {
-                formModel.AddReport();
-            },
+                {
+                    MessageBox.Show("sdjhd.skjfh");
+                    formModel.AddReport();
+                },
             //if have more conditian to add report 
             report => report != null);
 
+        public Report Report
+        {
+            get => FormModel.Report;
+            set
+            {
+                OnPropertyChanged();
+                FormModel.Report = value;
+            }
+        }
+
+        public NewReportFormVM()
+        {
+            FormModel = new NewReportFormModel();
+        }
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

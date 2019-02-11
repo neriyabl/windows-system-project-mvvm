@@ -95,3 +95,8 @@ C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Drag
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Dragablz.xml
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Controls\ActionButton.g.cs
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Controls\ActionButton.baml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\BL.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\DAL.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\BL.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\DAL.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\DAL.dll.config

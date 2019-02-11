@@ -55,7 +55,11 @@ namespace MvvmWpfApp.Views
         {
             ReportFormVm = new NewReportFormVM();
             DataContext = ReportFormVm;
-            MessageBox.Show("asdasdas");
+        }
+
+        private void ActionButton_OnButtonClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
