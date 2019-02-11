@@ -54,14 +54,34 @@ namespace MvvmWpfApp.Controls
         }
 
         public static readonly DependencyProperty StyleProperty = DependencyProperty.Register(
-            "Style", typeof(Object), typeof(ActionButton), new PropertyMetadata(default(Object)));
+            "Style", typeof(object), typeof(ActionButton), new PropertyMetadata(default(object)));
         /// <summary>
         /// the material design style for button
         /// </summary>
-        public Object Style
+        public object Style
         {
-            get { return (Object) GetValue(StyleProperty); }
-            set { SetValue(StyleProperty, value); }
+            get { return (object) GetValue(StyleProperty); }
+            set => SetValue(StyleProperty, value);
+        }
+
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
+            "Command", typeof(ICommand), typeof(ActionButton), new PropertyMetadata(default(ICommand)));
+        /// <summary>
+        /// the command
+        /// </summary>
+        public ICommand Command
+        {
+            get { return (ICommand) GetValue(CommandProperty); }
+            set { SetValue(CommandProperty, value); }
+        }
+
+        public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
+            "CommandParameter", typeof(object), typeof(ActionButton), new PropertyMetadata(default(object)));
+
+        public object CommandParameter
+        {
+            get { return (object) GetValue(CommandParameterProperty); }
+            set { SetValue(CommandParameterProperty, value); }
         }
 
         public event EventHandler ButtonClick;
@@ -73,8 +93,7 @@ namespace MvvmWpfApp.Controls
         protected void Button_Click(object sender, EventArgs e)
         {
             //bubble the event up to the parent
-            if (this.ButtonClick != null)
-                this.ButtonClick(this, e);
+            ButtonClick?.Invoke(this, e);
         }
 
         public ActionButton()

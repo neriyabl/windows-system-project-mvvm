@@ -105,6 +105,7 @@
       <DependentUpon>ActionButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\NewReportFormModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\NewReportFormVM.cs" />
     <Compile Include="Views\NewReportFormView.xaml.cs">
       <DependentUpon>NewReportFormView.xaml</DependentUpon>

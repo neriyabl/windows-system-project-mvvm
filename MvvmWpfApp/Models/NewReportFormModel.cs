@@ -7,26 +7,20 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using BE;
 using BL;
+using MvvmWpfApp.Utils;
 
 namespace MvvmWpfApp.Models
 {
-    class NewReportFormModel: ICommand
+    public class NewReportFormModel
     {
-        private IBl bl = new FactoryBl().GetInstance();
+        private readonly IBl _bl = new FactoryBl().GetInstance();
 
         public Report Report { get; set; }
 
-
-        public bool CanExecute(object parameter)
+        public void AddReport()
         {
-            throw new NotImplementedException();
+            _bl.AddReport(Report);
         }
 
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public event EventHandler CanExecuteChanged;
     }
 }
