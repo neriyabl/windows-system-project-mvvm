@@ -54,7 +54,7 @@
                         DockPanel.Dock="Right" Text="SAVE" State="origin"
                         Icon="ContentSave" Style="{StaticResource MaterialDesignRaisedButton}"/>
                     <Controls:ActionButton 
-                        DockPanel.Dock="Right" HorizontalAlignment="Right" ButtonClick="resetForm"
+                        DockPanel.Dock="Right" HorizontalAlignment="Right" ButtonClick="ResetForm"
                         Text="CANCEL" State="flat" Icon="Cancel" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </DockPanel>
             </StackPanel>

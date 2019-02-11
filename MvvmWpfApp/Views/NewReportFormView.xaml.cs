@@ -51,9 +51,11 @@ namespace MvvmWpfApp.Views
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        private void resetForm(object sender, EventArgs e)
+        private void ResetForm(object sender, EventArgs e)
         {
             ReportFormVm = new NewReportFormVM();
+            DataContext = ReportFormVm;
+            MessageBox.Show("asdasdas");
         }
     }
 }

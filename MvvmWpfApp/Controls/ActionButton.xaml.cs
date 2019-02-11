@@ -22,7 +22,9 @@ namespace MvvmWpfApp.Controls
     {
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             "Text", typeof(String), typeof(ActionButton), new PropertyMetadata(default(String)));
-
+        /// <summary>
+        /// the text on the button
+        /// </summary>
         public String Text
         {
             get { return (String) GetValue(TextProperty); }
@@ -31,7 +33,9 @@ namespace MvvmWpfApp.Controls
 
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
             "Icon", typeof(String), typeof(ActionButton), new PropertyMetadata(default(String)));
-
+        /// <summary>
+        /// the icon in the button from material icons
+        /// </summary>
         public String Icon
         {
             get { return (String) GetValue(IconProperty); }
@@ -40,7 +44,9 @@ namespace MvvmWpfApp.Controls
 
         public static readonly DependencyProperty StateProperty = DependencyProperty.Register(
             "State", typeof(String), typeof(ActionButton), new PropertyMetadata(default(String)));
-
+        /// <summary>
+        /// flat or origin
+        /// </summary>
         public String State
         {
             get { return (String) GetValue(StateProperty); }
@@ -49,7 +55,9 @@ namespace MvvmWpfApp.Controls
 
         public static readonly DependencyProperty StyleProperty = DependencyProperty.Register(
             "Style", typeof(Object), typeof(ActionButton), new PropertyMetadata(default(Object)));
-
+        /// <summary>
+        /// the material design style for button
+        /// </summary>
         public Object Style
         {
             get { return (Object) GetValue(StyleProperty); }
@@ -57,7 +65,11 @@ namespace MvvmWpfApp.Controls
         }
 
         public event EventHandler ButtonClick;
-
+        /// <summary>
+        /// the click event
+        /// </summary>
+        /// <param name="sender">the button</param>
+        /// <param name="e">event arguments</param>
         protected void Button_Click(object sender, EventArgs e)
         {
             //bubble the event up to the parent
@@ -69,7 +81,6 @@ namespace MvvmWpfApp.Controls
         {
             InitializeComponent();
             DataContext = this;
-           
         }
     }
 }
