@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using BE;
+using BL;
 
 namespace MvvmWpfApp.Models
 {
     class NewReportFormModel: ICommand
     {
-        
+        private IBl bl = new FactoryBl().GetInstance();
 
         public Report Report { get; set; }
 
