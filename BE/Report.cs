@@ -16,7 +16,7 @@ namespace BE
         public string Name { get; set; }
         public string Age { get; set; }
         public string Address { get; set; }
-        public DbGeography Location { get; set; }
+        // public DbGeography Location { get; set; }
         public DateTime Time { get; set; }
         public int NoiseIntensity { get; set; }
         public int NumOfExplosions { get; set; }

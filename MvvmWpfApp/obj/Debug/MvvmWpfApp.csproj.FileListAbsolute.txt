@@ -100,3 +100,5 @@ C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\DAL.
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\BL.pdb
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\DAL.pdb
 C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\DAL.dll.config
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\EntityFramework.SqlServer.xml

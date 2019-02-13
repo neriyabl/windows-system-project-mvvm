@@ -46,8 +46,7 @@ namespace MvvmWpfApp.ViewModels
             FormModel = new NewReportFormModel();
             AddReportCommand = new RelayCommand<NewReportFormModel>(formModel =>
                 {
-                    MessageBox.Show(formModel.Report.ToString());
-                    //formModel.AddReport();
+                    formModel.AddReport();
                 },
                 //if have more conditian to add report 
                 report => report != null);
