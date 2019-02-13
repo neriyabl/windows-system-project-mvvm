@@ -15,7 +15,7 @@ namespace MvvmWpfApp.Models
     {
         private readonly IBl _bl = new FactoryBl().GetInstance();
 
-        public Report Report { get; set; }
+        public Report Report { get; set; } = new Report();
 
         public void AddReport()
         {

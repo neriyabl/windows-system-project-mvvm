@@ -21,5 +21,10 @@ namespace BE
         public int NoiseIntensity { get; set; }
         public int NumOfExplosions { get; set; }
         public Event Event { get; set; }
+
+        public Report()
+        {
+            Time = DateTime.Now;
+        }
     }
 }

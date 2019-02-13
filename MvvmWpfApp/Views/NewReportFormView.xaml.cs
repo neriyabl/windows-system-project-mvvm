@@ -24,13 +24,24 @@ namespace MvvmWpfApp.Views
     /// </summary>
     public partial class NewReportFormView : UserControl, INotifyPropertyChanged
     {
-        public NewReportFormVM ReportFormVm { get; set; }
+        private NewReportFormVM _reportFormVm;
+        public NewReportFormVM ReportFormVm
+        {
+            get => _reportFormVm;
+            set
+            {
+                _reportFormVm = value;
+                OnPropertyChanged();
+            }
+        }
 
         public NewReportFormView()
         {
             InitializeComponent();
             ReportFormVm = new NewReportFormVM();
             DataContext = ReportFormVm;
+            SaveButton.Command = ReportFormVm.AddReportCommand;
+            SaveButton.CommandParameter = ReportFormVm.FormModel;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

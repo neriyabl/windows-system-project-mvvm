@@ -47,15 +47,14 @@
                     <DatePicker x:Name="TimeDatePicker" VerticalAlignment="Center" Width="150" SelectedDate="{Binding Report.Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
                 </Grid>
                 <Separator/>
-                <DockPanel Margin="3">
+                <DockPanel Margin="3" x:Name="ActionsPanel">
                     <Controls:ActionButton 
+                        x:Name="SaveButton"
                         DockPanel.Dock="Right" 
                         Text="SAVE" 
                         State="origin" 
-                        Command="{Binding AddReportCommand}"
-                        CommandParameter="{Binding}"
                         Icon="ContentSave"
-                        ButtonClick="ActionButton_OnButtonClick"
+
                         Style="{StaticResource MaterialDesignRaisedButton}"/>
                     <Controls:ActionButton 
                         DockPanel.Dock="Right" HorizontalAlignment="Right" ButtonClick="ResetForm"
