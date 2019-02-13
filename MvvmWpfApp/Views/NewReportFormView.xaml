@@ -9,6 +9,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:Controls="clr-namespace:MvvmWpfApp.Controls"
              xmlns:viewModels="clr-namespace:MvvmWpfApp.ViewModels"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              x:Class="MvvmWpfApp.Views.NewReportFormView"
              mc:Ignorable="d" 
              Background="{DynamicResource MaterialDesignPaper}"
@@ -16,7 +17,7 @@
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Medium"
              TextElement.FontSize="18"
-             d:DesignHeight="700" d:DesignWidth="400" Loaded="UserControl_Loaded">
+             d:DesignHeight="700" d:DesignWidth="600" Loaded="UserControl_Loaded">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight}">
         <materialDesign:Card  Margin="10" HorizontalAlignment="Left" d:DataContext="{d:DesignInstance Type=viewModels:NewReportFormVM}">
             <StackPanel Orientation="Vertical">
@@ -34,17 +35,18 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" Grid.Column="0" Content="Address:"/>
-                    <TextBox x:Name="AddressTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Report.Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <TextBox x:Name="AddressTextBox" Width="250" VerticalAlignment="Center" Text="{Binding Report.Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
                     <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" Grid.Column="0" Content="Age:"/>
-                    <TextBox x:Name="AgeTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Report.Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <TextBox x:Name="AgeTextBox" Width="250" VerticalAlignment="Center" Text="{Binding Report.Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="1" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
                     <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" Grid.Column="0" Content="Name:"/>
-                    <TextBox x:Name="NameTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Report.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <TextBox x:Name="NameTextBox" Width="250" VerticalAlignment="Center" Text="{Binding Report.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="2" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
                     <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" Grid.Column="0" Content="Noise Intensity:"/>
-                    <TextBox x:Name="NoiseIntensityTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Report.NoiseIntensity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <TextBox x:Name="NoiseIntensityTextBox" Width="250" VerticalAlignment="Center" Text="{Binding Report.NoiseIntensity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="3" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
                     <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" Grid.Column="0" Content="Num Of Explosions:"/>
-                    <TextBox x:Name="NumOfExplosionsTextBox" Width="150" VerticalAlignment="Center" Text="{Binding Report.NumOfExplosions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
+                    <TextBox x:Name="NumOfExplosionsTextBox" Width="250" VerticalAlignment="Center" Text="{Binding Report.NumOfExplosions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3"  HorizontalAlignment="Left" Grid.Column="1"/>
                     <Label VerticalAlignment="Center" Grid.Row="5" Margin="3" Grid.Column="0" Content="Time:"/>
-                    <DatePicker x:Name="TimeDatePicker" VerticalAlignment="Center" Width="150" SelectedDate="{Binding Report.Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+                    <!--<DatePicker x:Name="TimeDatePicker" VerticalAlignment="Center" Width="250" SelectedDate="{Binding Report.Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>-->
+                    <xctk:DateTimePicker x:Name="TimeDatePicker"  CalendarWidth="500" VerticalAlignment="Center" Width="250" Value="{Binding Report.Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="5" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
                 </Grid>
                 <Separator/>
                 <DockPanel Margin="3" x:Name="ActionsPanel">
@@ -54,7 +56,6 @@
                         Text="SAVE" 
                         State="origin" 
                         Icon="ContentSave"
-
                         Style="{StaticResource MaterialDesignRaisedButton}"/>
                     <Controls:ActionButton 
                         DockPanel.Dock="Right" HorizontalAlignment="Right" ButtonClick="ResetForm"
