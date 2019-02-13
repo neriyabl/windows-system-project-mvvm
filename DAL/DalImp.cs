@@ -18,7 +18,7 @@ namespace DAL
         /// </summary>
         /// <param name="_event"> the new event </param>
         /// <exception>throw exception if the id already exist</exception>
-        public void AddEvent(Event _event)
+        public async void AddEvent(Event _event)
         {
             if (_event.Id != 0 && GetEvent(_event.Id) != null)
             {
@@ -27,7 +27,7 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 db.Events.Add(_event);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
         }
 
