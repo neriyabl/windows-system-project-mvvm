@@ -25,6 +25,7 @@ namespace BE
         public Report()
         {
             Time = DateTime.Now;
+            int a = 0;
         }
     }
 }
