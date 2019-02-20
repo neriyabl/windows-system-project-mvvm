@@ -9,17 +9,3 @@ C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  s
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\BL\obj\Debug\BL.dll
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\BL\obj\Debug\BL.pdb
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\BL.dll
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\BL.pdb
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\BE.dll
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\DAL.dll
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\EntityFramework.dll
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\BE.pdb
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\BE.dll.config
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\DAL.pdb
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\DAL.dll.config
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\bin\Debug\EntityFramework.xml
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\obj\Debug\BL.dll
-C:\Users\user\source\repos\windows-system-project-mvvm\BL\obj\Debug\BL.pdb
