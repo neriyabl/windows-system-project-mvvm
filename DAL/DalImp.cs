@@ -123,7 +123,7 @@ namespace DAL
         /// </summary>
         /// <param name="report"> the new event </param>
         /// <exception>throw exception if the id already exist</exception>
-        public void AddReport(Report report)
+        public async Task AddReport(Report report)
         {
             if (report.Id != null && GetReport(report.Id) != null)
             {
@@ -132,7 +132,7 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 db.Reports.Add(report);
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
         }
 

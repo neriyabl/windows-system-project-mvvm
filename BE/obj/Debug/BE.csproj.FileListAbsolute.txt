@@ -32,4 +32,3 @@ C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\MahApps.Metr
 C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.dll
 C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.pdb
-C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache

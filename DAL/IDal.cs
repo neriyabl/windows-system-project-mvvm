@@ -20,7 +20,7 @@ namespace DAL
         #endregion
 
         #region Report methods
-        void AddReport(Report report);
+        Task AddReport(Report report);
         void RemoveReport(int? id);
         void UpdateReport(Report _event);
         List<Report> GetReports(Predicate<Report> predicate = null);
