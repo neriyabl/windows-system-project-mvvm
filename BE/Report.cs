@@ -14,7 +14,6 @@ namespace BE
         [Key]
         public int? Id { get; set; }
         public string Name { get; set; }
-        public string Age { get; set; }
         public string Address { get; set; }
         // public DbGeography Location { get; set; }
         public DateTime Time { get; set; }

@@ -16,3 +16,19 @@ C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  s
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\BE\bin\Debug\MahApps.Metro.pdb
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\BE\bin\Debug\MahApps.Metro.xml
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\BE.dll.config
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\BE.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\BE.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\ControlzEx.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\EntityFramework.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\MahApps.Metro.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\ControlzEx.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\EntityFramework.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\MahApps.Metro.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\bin\Debug\MahApps.Metro.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.pdb

@@ -10,3 +10,17 @@ C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  s
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\DAL\obj\Debug\DAL.dll
 C:\Users\user\OneDrive - g.jct.ac.il\Projects\Handasat-Windows-System\windows  system project\DAL\obj\Debug\DAL.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\DAL.dll.config
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\DAL.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\DAL.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\BE.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\EntityFramework.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\BE.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\BE.dll.config
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\EntityFramework.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\obj\Debug\DAL.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\DAL\obj\Debug\DAL.pdb
