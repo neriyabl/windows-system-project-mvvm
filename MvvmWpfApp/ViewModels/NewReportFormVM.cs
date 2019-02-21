@@ -23,7 +23,7 @@ namespace MvvmWpfApp.ViewModels
         private RelayCommand<NewReportFormModel> _addReportCommand;
         public RelayCommand<NewReportFormModel> AddReportCommand
         {
-            get => _addReportCommand;
+            get { return _addReportCommand; }
             set
             {
                 _addReportCommand = value;
@@ -33,7 +33,7 @@ namespace MvvmWpfApp.ViewModels
 
         public Report Report
         {
-            get => FormModel.Report;
+            get { return FormModel.Report; }
             set
             {
                 OnPropertyChanged();

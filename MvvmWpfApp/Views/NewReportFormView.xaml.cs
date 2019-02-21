@@ -27,7 +27,7 @@ namespace MvvmWpfApp.Views
         private NewReportFormVM _reportFormVm;
         public NewReportFormVM ReportFormVm
         {
-            get => _reportFormVm;
+            get { return _reportFormVm; }
             set
             {
                 _reportFormVm = value;

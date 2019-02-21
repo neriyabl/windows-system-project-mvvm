@@ -55,6 +55,10 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MvvmDialogs, Version=5.2.1.0, Culture=neutral, PublicKeyToken=3d3b9708589bc73e, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmDialogs.5.2.1\lib\net45\MvvmDialogs.dll</HintPath>
       <Private>True</Private>
@@ -102,6 +106,9 @@
     <Compile Include="Controls\ActionButton.xaml.cs">
       <DependentUpon>ActionButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MapUC.xaml.cs">
+      <DependentUpon>MapUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\NewReportFormModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\NewReportFormVM.cs" />
@@ -109,6 +116,10 @@
       <DependentUpon>NewReportFormView.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\ActionButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MapUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,7 +163,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <TypeScriptCompile Include="types\MicrosoftMaps\ConfigurationDrivenMaps.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\CustomMapStyles.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Microsoft.Maps.All.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Microsoft.Maps.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Autosuggest.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Clustering.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Contour.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\DataBinning.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Directions.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\DrawingTools.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\GeoJson.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\GeoXml.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\HeatMapLayer.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Search.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\SpatialDataService.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\SpatialMath.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\Traffic.d.ts" />
+    <TypeScriptCompile Include="types\MicrosoftMaps\Modules\WellKnownText.d.ts" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
       <Project>{2A8AE401-581A-4B1B-8ACE-D5ED51C44EB3}</Project>

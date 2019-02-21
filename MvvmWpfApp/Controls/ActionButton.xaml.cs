@@ -60,8 +60,8 @@ namespace MvvmWpfApp.Controls
         /// </summary>
         public object Style
         {
-            get => (object) GetValue(StyleProperty);
-            set => SetValue(StyleProperty, value);
+            get { return (object)GetValue(StyleProperty); }
+            set { SetValue(StyleProperty, value); }
         }
 
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
@@ -71,8 +71,8 @@ namespace MvvmWpfApp.Controls
         /// </summary>
         public ICommand Command
         {
-            get => (ICommand) GetValue(CommandProperty);
-            set => SetValue(CommandProperty, value);
+            get { return (ICommand)GetValue(CommandProperty); }
+            set { SetValue(CommandProperty, value); }
         }
 
         public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
@@ -80,8 +80,8 @@ namespace MvvmWpfApp.Controls
 
         public object CommandParameter
         {
-            get => GetValue(CommandParameterProperty);
-            set => SetValue(CommandParameterProperty, value);
+            get { return GetValue(CommandParameterProperty); }
+            set { SetValue(CommandParameterProperty, value); }
         }
 
         public event EventHandler ButtonClick;
