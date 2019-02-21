@@ -60,10 +60,10 @@
             </Menu>-->
         </Grid>
 
-        <StackPanel>
+        <DockPanel>
             <!-- Place here your content -->
             <local:NewReportFormView x:Name="ReportFormView"/>
-            <MvvmWpfApp:MapUC Height="143" Width="676"/>
-        </StackPanel>
+            <MvvmWpfApp:MapView />
+        </DockPanel>
     </DockPanel>
 </Window>

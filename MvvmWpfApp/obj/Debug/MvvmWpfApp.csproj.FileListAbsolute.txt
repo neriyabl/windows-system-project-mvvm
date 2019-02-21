@@ -165,3 +165,7 @@ C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\MvvmWpfApp\obj\Deb
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\MvvmWpfApp\obj\Debug\MvvmWpfApp.pdb
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\MvvmWpfApp\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\MvvmWpfApp\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\MapView.g.cs
+C:\Users\user\source\repos\windows-system-project-mvvm\MvvmWpfApp\obj\Debug\Views\MapView.baml

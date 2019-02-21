@@ -50,3 +50,4 @@ C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\BE\bin\Debug\Syste
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\BE\obj\Debug\BE.dll
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\BE\obj\Debug\BE.pdb
+C:\Users\user\source\repos\windows-system-project-mvvm\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
