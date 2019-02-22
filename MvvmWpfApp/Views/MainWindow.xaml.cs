@@ -21,7 +21,7 @@ namespace MvvmWpfApp.Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow: Window
+    public partial class MainWindow : Window
     {
         private static readonly ILog Log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -52,11 +52,26 @@ namespace MvvmWpfApp.Views
 
             if (index == 0)
             {
+                #region toShow
                 ReportFormView.Visibility = Visibility.Visible;
+                MapView.Visibility = Visibility.Visible;
+                #endregion
+
+                #region toHide
+
+
+                #endregion
             }
             else if (index == 1)
             {
+                #region toShow
+
+                #endregion
+
+                #region toHide
                 ReportFormView.Visibility = Visibility.Collapsed;
+                MapView.Visibility = Visibility.Collapsed;
+                #endregion
             }
         }
     }

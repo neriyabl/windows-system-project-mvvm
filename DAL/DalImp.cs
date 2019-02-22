@@ -75,9 +75,17 @@ namespace DAL
             List<Event> events;
             using (var db = new ProjectContext())
             {
-                events = (from _event in db.Events
-                    where predicate == null || predicate(_event)
-                    select _event).ToList();
+                if (predicate != null)
+                {
+                    events = (from _event in db.Events
+                              where predicate(_event)
+                              select _event).ToList();
+                }
+                else
+                {
+                    events = (from _event in db.Events
+                              select _event).ToList();
+                }
             }
             return events;
         }
@@ -93,8 +101,8 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 events = await (from _event in db.Events
-                    where predicate == null || predicate(_event)
-                    select _event).ToListAsync();
+                                where predicate == null || predicate(_event)
+                                select _event).ToListAsync();
             }
             return events;
         }
@@ -123,16 +131,27 @@ namespace DAL
         /// </summary>
         /// <param name="report"> the new event </param>
         /// <exception>throw exception if the id already exist</exception>
-        public async Task AddReport(Report report)
+        public async Task<Report> AddReport(Report report)
         {
             if (report.Id != null && GetReport(report.Id) != null)
             {
                 throw new Exception("the report already exist");
             }
-            using (var db = new ProjectContext())
+            try
             {
-                db.Reports.Add(report);
-                await db.SaveChangesAsync();
+                Report resReport= new Report();
+                using (var db = new ProjectContext())
+                {
+                    resReport = db.Reports.Add(report);
+                    await db.SaveChangesAsync();
+                }
+                if (resReport.Id != null) return resReport;
+                throw new Exception("id not updated wen the report saved");
+
+            }
+            catch (Exception e)
+            {
+                return null;
             }
         }
 
@@ -181,8 +200,8 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 reports = (from report in db.Reports
-                    where predicate == null || predicate(report)
-                    select report).ToList();
+                           where predicate == null || predicate(report)
+                           select report).ToList();
             }
             return reports;
         }
@@ -198,8 +217,8 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 reports = await (from report in db.Reports
-                    where predicate == null || predicate(report)
-                    select report).ToListAsync();
+                                 where predicate == null || predicate(report)
+                                 select report).ToListAsync();
             }
             return reports;
         }

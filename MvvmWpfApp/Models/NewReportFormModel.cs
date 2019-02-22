@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using BE;
 using BL;
@@ -17,9 +18,13 @@ namespace MvvmWpfApp.Models
 
         public Report Report { get; set; } = new Report();
 
-        public void AddReport()
+        public async void AddReport()
         {
-            _bl.AddReport(Report);
+            var res = await _bl.AddReport(Report);
+            var message = res != null ? 
+                $"The Report: {res.Id}\nFrom: {res.Name}\nOn: {res.Time} Saved Successfully!" : 
+                "Something went wrong!";
+            MessageBox.Show(message);
         }
 
     }

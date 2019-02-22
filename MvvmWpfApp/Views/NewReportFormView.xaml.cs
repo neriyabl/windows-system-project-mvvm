@@ -33,15 +33,13 @@ namespace MvvmWpfApp.Views
                 _reportFormVm = value;
                 OnPropertyChanged();
             }
+
         }
 
         public NewReportFormView()
         {
             InitializeComponent();
-            ReportFormVm = new NewReportFormVM();
-            DataContext = ReportFormVm;
-            SaveButton.Command = ReportFormVm.AddReportCommand;
-            SaveButton.CommandParameter = ReportFormVm.FormModel;
+            InitForm();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -64,8 +62,15 @@ namespace MvvmWpfApp.Views
 
         private void ResetForm(object sender, EventArgs e)
         {
+            InitForm();
+        }
+
+        private void InitForm()
+        {
             ReportFormVm = new NewReportFormVM();
             DataContext = ReportFormVm;
+            SaveButton.Command = ReportFormVm.AddReportCommand;
+            SaveButton.CommandParameter = ReportFormVm.FormModel;
         }
 
         private void ActionButton_OnButtonClick(object sender, EventArgs e)

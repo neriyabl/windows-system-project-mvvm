@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,15 +46,29 @@ namespace BL
         #endregion
 
         #region Reports
-        public void AddReport(Report report)
+        public Task<Report> AddReport(Report report)
         {
-            List<Event> events = GetEvents()
-                .Where(e => e.StartTime <= report.Time.AddMinutes(10) ||
-                 e.StartTime.AddMinutes(10) >= report.Time.AddMinutes(-10))
-                .ToList();
+            //TODO after adding endTime to event replace this disgusting query
+            List<Event> events = (from e in GetEvents()
+                                  //let endTime = (from r in e.Reports
+                                  //              orderby r.Time descending
+                                  //              select r.Time).First()
+                                 where e.StartTime <= report.Time.AddMinutes(10) &&
+                                 e.StartTime.AddMinutes(10) >= report.Time.AddMinutes(-10)
+                                  select e).ToList();
             if (events.Count == 1)
             {
-                //TODO check if need to change the event time
+                if (report.Time < events[0].StartTime)
+                {
+                    events[0].StartTime = report.Time;
+                    UpdateEvent(events[0]);
+                }
+                else if (report.Time > events[0].StartTime.AddMinutes(10))
+                {
+                    //TODO need to add and time to event
+                }
+                report.Event = events[0];
+                events[0].Reports?.Add(report);
             }
             else if (events.Count > 1)
             {
@@ -61,9 +76,9 @@ namespace BL
             }
             else
             {
-                report.Event = new Event {StartTime = report.Time};
+                report.Event = new Event { StartTime = report.Time };
             }
-            _dal.AddReport(report);
+            return _dal.AddReport(report);
         }
 
         public void RemoveReport(int id)

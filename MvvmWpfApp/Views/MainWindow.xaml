@@ -63,7 +63,7 @@
         <DockPanel>
             <!-- Place here your content -->
             <local:NewReportFormView x:Name="ReportFormView"/>
-            <MvvmWpfApp:MapView />
+            <MvvmWpfApp:MapView x:Name="MapView"/>
         </DockPanel>
     </DockPanel>
 </Window>
