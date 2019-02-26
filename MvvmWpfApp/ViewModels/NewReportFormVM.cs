@@ -48,7 +48,7 @@ namespace MvvmWpfApp.ViewModels
                 {
                     formModel.AddReport();
                 },
-                //if have more conditian to add report 
+                //if have more condition to add report 
                 report => report != null);
         }
 

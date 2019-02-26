@@ -75,7 +75,7 @@ namespace MvvmWpfApp.Views
 
         private void ActionButton_OnButtonClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

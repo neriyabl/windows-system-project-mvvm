@@ -17,5 +17,6 @@ namespace DAL
         }
         public DbSet<Event> Events { get; set; }
         public DbSet<Report> Reports { get; set; }
+        public DbSet<Explosion> Explosions { get; set; }
     }
 }

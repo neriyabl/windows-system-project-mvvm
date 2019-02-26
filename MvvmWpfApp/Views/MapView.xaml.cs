@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Maps;
 using MvvmWpfApp.Annotations;
+using MvvmWpfApp.ViewModels;
 
 namespace MvvmWpfApp
 {
@@ -30,7 +31,10 @@ namespace MvvmWpfApp
             InitializeComponent();
             BingMap.Height = SystemParameters.PrimaryScreenHeight * 0.80;
             BingMap.Width = SystemParameters.PrimaryScreenWidth * 0.70;
+            EventsCheckCB.DataContext = mapVM.Events_ID;
         }
+
+        private MapVM mapVM { get; set; } = new MapVM();
 
         public event PropertyChangedEventHandler PropertyChanged;
 

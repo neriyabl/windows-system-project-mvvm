@@ -139,7 +139,7 @@ namespace DAL
             }
             try
             {
-                Report resReport= new Report();
+                Report resReport = new Report();
                 using (var db = new ProjectContext())
                 {
                     resReport = db.Reports.Add(report);

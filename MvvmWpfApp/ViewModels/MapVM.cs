@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmWpfApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,16 @@ namespace MvvmWpfApp.ViewModels
 {
     class MapVM
     {
+        public MapVM()
+        {
+            mapModel = new MapModel();
+            foreach (var _event in mapModel.Events)
+            {
+                Events_ID.Add(_event.Id.ToString());
+            }
+        }
+
+        public MapModel mapModel { get; set; }
+        public List<string> Events_ID { get; set; } = new List<string>();
     }
 }

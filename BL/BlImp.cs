@@ -31,7 +31,18 @@ namespace BL
 
         public List<Event> GetEvents(Predicate<Event> predicate = null)
         {
-            return _dal.GetEvents(predicate);
+            try
+            {
+                if (_dal.GetEvents(predicate).Count != 0)
+                {
+                    return _dal.GetEvents(predicate);
+                }
+            }
+            catch (Exception ex)
+            {
+                //
+            }
+            return new List<Event>();
         }
 
         public Task<List<Event>> GetEventsAsync(Predicate<Event> predicate = null)
@@ -50,11 +61,11 @@ namespace BL
         {
             //TODO after adding endTime to event replace this disgusting query
             List<Event> events = (from e in GetEvents()
-                                  //let endTime = (from r in e.Reports
-                                  //              orderby r.Time descending
-                                  //              select r.Time).First()
-                                 where e.StartTime <= report.Time.AddMinutes(10) &&
-                                 e.StartTime.AddMinutes(10) >= report.Time.AddMinutes(-10)
+                                      //let endTime = (from r in e.Reports
+                                      //              orderby r.Time descending
+                                      //              select r.Time).First()
+                                  where e.StartTime <= report.Time.AddMinutes(10) &&
+                                  e.StartTime.AddMinutes(10) >= report.Time.AddMinutes(-10)
                                   select e).ToList();
             if (events.Count == 1)
             {
@@ -68,7 +79,7 @@ namespace BL
                     //TODO need to add and time to event
                 }
                 report.Event = events[0];
-               // events[0].Reports?.Add(report);
+                // events[0].Reports?.Add(report);
             }
             else if (events.Count > 1)
             {

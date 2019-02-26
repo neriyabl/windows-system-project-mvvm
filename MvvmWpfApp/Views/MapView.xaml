@@ -16,7 +16,7 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <xctk:CheckComboBox Text="Select Events To Display Reports On The Map"  Grid.Row="0"/>
+                <xctk:CheckComboBox x:Name="EventsCheckCB" ItemsSource="{Binding}" Text="Select Events To Display Reports On The Map"  Grid.Row="0"/>
                     <m:Map x:Name="BingMap" Grid.Row="1" CredentialsProvider="AgK_gAfXEpEf0Fp0EZj3Wh8n3U6lR954Mfo6Gh_tVz2TebjjwhNkYf1I0V4CEJwk"
                            Center="31.7962419,35.3154441" ZoomLevel="7.5"/>
             </Grid>
