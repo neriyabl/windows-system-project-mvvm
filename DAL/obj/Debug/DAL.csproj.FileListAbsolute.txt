@@ -36,3 +36,15 @@ C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\DAL\bin\Debug\Enti
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\DAL\obj\Debug\DAL.dll
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm7\DAL\obj\Debug\DAL.pdb
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\DAL.dll.config
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\DAL.dll
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\DAL.pdb
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\BE.dll
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\EntityFramework.dll
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\BE.pdb
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\EntityFramework.xml
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\obj\Debug\DAL.dll
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\DAL\obj\Debug\DAL.pdb

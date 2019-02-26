@@ -68,7 +68,7 @@ namespace BL
                     //TODO need to add and time to event
                 }
                 report.Event = events[0];
-                events[0].Reports?.Add(report);
+               // events[0].Reports?.Add(report);
             }
             else if (events.Count > 1)
             {
