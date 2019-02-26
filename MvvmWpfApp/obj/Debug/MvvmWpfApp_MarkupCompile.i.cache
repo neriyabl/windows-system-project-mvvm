@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\Source\Repos\windows-system-project-mvvm5\MvvmWpfApp\obj\Debug\
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\MvvmWpfApp\obj\Debug\
 MvvmWpfApp
 none
 false
 DEBUG;TRACE
-C:\Users\user\Source\Repos\windows-system-project-mvvm5\MvvmWpfApp\App.xaml
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\MvvmWpfApp\App.xaml
 5-1715846708
 
-21-1187693517
-32-1781579876
+21-1879502835
+32-710076186
 Controls\ActionButton.xaml;Views\MapView.xaml;Views\About.xaml;Views\MainWindow.xaml;Views\NewReportFormView.xaml;
 
-False
+True
 

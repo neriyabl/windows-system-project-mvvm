@@ -45,3 +45,14 @@ C:\Users\user\Source\Repos\windows-system-project-mvvm5\BL\bin\Debug\EntityFrame
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BL\obj\Debug\BL.dll
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BL\obj\Debug\BL.pdb
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\BL.dll
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\BL.pdb
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\BE.dll
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\DAL.dll
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\EntityFramework.dll
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\BE.pdb
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\DAL.pdb
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\bin\Debug\EntityFramework.xml
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\obj\Debug\BL.csprojResolveAssemblyReference.cache
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\obj\Debug\BL.dll
+C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BL\obj\Debug\BL.pdb
