@@ -14,7 +14,7 @@ namespace MvvmWpfApp.ViewModels
             mapModel = new MapModel();
             foreach (var _event in mapModel.Events)
             {
-                Events_ID.Add(_event.Id.ToString());
+                Events_ID.Add(_event.Id.ToString() + ": " + _event.StartTime.ToString());
             }
         }
 
