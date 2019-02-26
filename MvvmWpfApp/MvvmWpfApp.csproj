@@ -106,6 +106,8 @@
     <Compile Include="Controls\ActionButton.xaml.cs">
       <DependentUpon>ActionButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\MapModels.cs" />
+    <Compile Include="ViewModels\MapVM.cs" />
     <Compile Include="Views\MapView.xaml.cs">
       <DependentUpon>MapView.xaml</DependentUpon>
     </Compile>

@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Event.cs" />
+    <Compile Include="Explosion.cs" />
     <Compile Include="Report.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

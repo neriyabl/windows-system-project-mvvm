@@ -11,13 +11,10 @@ namespace BE
 {
     public class Event
     {
-        //todo add new entity for explotion
         [Key]
         public int Id { get; set; }
         public DateTime StartTime { get; set; }
-        // public DbGeography RealLocation { get; set; }
-        // public DbGeography CalculateLocation { get; set; }
-        
+        public ICollection<Explosion> Explosions { get; set; }
         public ICollection<Report> Reports { get; set; }
     }
 }

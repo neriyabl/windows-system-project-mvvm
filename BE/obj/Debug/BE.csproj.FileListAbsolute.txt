@@ -66,6 +66,5 @@ C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\bin\Debug\EntityFrame
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\bin\Debug\MahApps.Metro.pdb
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\bin\Debug\MahApps.Metro.xml
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\bin\Debug\System.Spatial.xml
-C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\obj\Debug\BE.dll
 C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\obj\Debug\BE.pdb
