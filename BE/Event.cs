@@ -23,8 +23,8 @@ namespace BE
             {
                 Id = Id,
                 StartTime = new DateTime(StartTime.Ticks),
-                Explosions = (from explosion in Explosions select explosion.Clone() as Explosion).ToList(),
-                Reports = (from report in Reports select report.Clone() as Report).ToList(),
+                Explosions = (from explosion in Explosions select explosion?.Clone() as Explosion).ToList(),
+                Reports = (from report in Reports select report?.Clone() as Report).ToList(),
             };
         }
     }

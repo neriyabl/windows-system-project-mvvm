@@ -19,7 +19,7 @@ namespace BE
             return new Explosion()
             {
                 Id = Id,
-                Event = Event.Clone() as Event,
+                Event = Event?.Clone() as Event,
                 RealLatitude = RealLatitude,
                 RealLongitude = RealLongitude,
                 ApproxLatitude = ApproxLatitude,

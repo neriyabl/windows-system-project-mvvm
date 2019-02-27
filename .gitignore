@@ -332,3 +332,7 @@ MvvmWpfApp/obj/Debug/
 *.cache
 
 BE/obj/Debug/
+
+BL/obj/Debug/
+
+DAL/obj/Debug/
