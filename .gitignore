@@ -330,3 +330,5 @@ ASALocalRun/
 MvvmWpfApp/obj/Debug/
 
 *.cache
+
+BE/obj/Debug/
