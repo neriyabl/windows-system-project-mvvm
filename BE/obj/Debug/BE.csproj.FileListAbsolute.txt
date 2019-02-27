@@ -86,3 +86,4 @@ C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BE\bin\Debug\Syste
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BE\obj\Debug\BE.dll
 C:\Users\משפחה\Source\Repos\windows-system-project-mvvm9\BE\obj\Debug\BE.pdb
+C:\Users\user\Source\Repos\windows-system-project-mvvm5\BE\obj\Debug\BE.csprojResolveAssemblyReference.cache
