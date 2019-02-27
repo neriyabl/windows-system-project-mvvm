@@ -31,21 +31,25 @@ namespace MvvmWpfApp.ViewModels
             }
         }
 
+        private Report reportModel;
         public Report Report
         {
-            get { return FormModel.Report; }
+            get { return reportModel; }
             set
             {
                 OnPropertyChanged();
-                FormModel.Report = value;
+                reportModel = value;
             }
         }
 
         public NewReportFormVM()
         {
             FormModel = new NewReportFormModel();
+            this.reportModel = FormModel.Report.Clone() as Report;
             AddReportCommand = new RelayCommand<NewReportFormModel>(formModel =>
                 {
+                    formModel.Report = reportModel.Clone() as Report;
+                    reportModel = new Report();
                     formModel.AddReport();
                 },
                 //if have more condition to add report 

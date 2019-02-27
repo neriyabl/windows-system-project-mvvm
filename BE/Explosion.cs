@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Device.Location;
 
 namespace BE
 {
-    public class Explosion
+    public class Explosion: ICloneable
     {
         [Key]
         public int Id { get; set; }
@@ -12,5 +13,18 @@ namespace BE
         public string RealLongitude { get; set; }
         public string ApproxLatitude { get; set; }
         public string ApproxLongitude { get; set; }
+
+        public object Clone()
+        {
+            return new Explosion()
+            {
+                Id = Id,
+                Event = Event.Clone() as Event,
+                RealLatitude = RealLatitude,
+                RealLongitude = RealLongitude,
+                ApproxLatitude = ApproxLatitude,
+                ApproxLongitude = ApproxLongitude
+            };
+        }
     }
 }

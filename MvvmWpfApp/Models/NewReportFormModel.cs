@@ -23,7 +23,7 @@ namespace MvvmWpfApp.Models
             var res = await _bl.AddReport(Report);
             var message = res != null ? 
                 $"The Report: {res.Id}\nFrom: {res.Name}\nOn: {res.Time} Saved Successfully!" : 
-                "Something went wrong!";
+                "Something went wrong when trying to add report!";
             MessageBox.Show(message);
         }
 
