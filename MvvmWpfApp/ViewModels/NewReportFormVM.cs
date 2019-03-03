@@ -49,7 +49,7 @@ namespace MvvmWpfApp.ViewModels
             AddReportCommand = new RelayCommand<NewReportFormModel>(formModel =>
                 {
                     formModel.Report = reportModel.Clone() as Report;
-                    reportModel = new Report();
+                    Report = new Report();
                     formModel.AddReport();
                 },
                 //if have more condition to add report 

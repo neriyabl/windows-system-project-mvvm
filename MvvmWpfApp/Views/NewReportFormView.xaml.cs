@@ -71,6 +71,7 @@ namespace MvvmWpfApp.Views
             DataContext = ReportFormVm;
             SaveButton.Command = ReportFormVm.AddReportCommand;
             SaveButton.CommandParameter = ReportFormVm.FormModel;
+            ReportFormVm.PropertyChanged += (sender, args) => InitForm();
         }
 
         private void ActionButton_OnButtonClick(object sender, EventArgs e)
