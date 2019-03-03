@@ -61,12 +61,10 @@ namespace BL
         {
             //TODO after adding endTime to event replace this disgusting query
             List<Event> events = (from e in GetEvents()
-                                      //let endTime = (from r in e.Reports
-                                      //              orderby r.Time descending
-                                      //              select r.Time).First()
                                   where e.StartTime <= report.Time.AddMinutes(10) &&
-                                  e.StartTime.AddMinutes(10) >= report.Time.AddMinutes(-10)
+                                  e.EndTime >= report.Time.AddMinutes(-10)
                                   select e).ToList();
+
             if (events.Count == 1)
             {
                 if (report.Time < events[0].StartTime)
@@ -74,9 +72,10 @@ namespace BL
                     events[0].StartTime = report.Time;
                     UpdateEvent(events[0]);
                 }
-                else if (report.Time > events[0].StartTime.AddMinutes(10))
+                else if (report.Time > events[0].EndTime)
                 {
-                    //TODO need to add end time to event
+                    events[0].EndTime = report.Time;
+                    UpdateEvent(events[0]);
                 }
                 report.Event = events[0];
             }
@@ -86,7 +85,7 @@ namespace BL
             }
             else
             {
-                report.Event = new Event { StartTime = report.Time };
+                report.Event = new Event(report.Time) { StartTime = report.Time };
             }
             return _dal.AddReport(report);
         }
