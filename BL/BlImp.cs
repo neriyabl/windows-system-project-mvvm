@@ -76,10 +76,9 @@ namespace BL
                 }
                 else if (report.Time > events[0].StartTime.AddMinutes(10))
                 {
-                    //TODO need to add and time to event
+                    //TODO need to add end time to event
                 }
                 report.Event = events[0];
-                // events[0].Reports?.Add(report);
             }
             else if (events.Count > 1)
             {
