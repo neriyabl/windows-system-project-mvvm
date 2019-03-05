@@ -78,6 +78,7 @@ namespace MvvmWpfApp.Views
 
         private void SaveEnableCheck(object sender, TextChangedEventArgs e)
         {
+            int _;
             SaveButton.IsEnabled = AddressTextBox.Text != "" &&
                                    NameTextBox.Text != "" &&
                                    !(NoiseIntensityTextBox.Text == "0" ||
