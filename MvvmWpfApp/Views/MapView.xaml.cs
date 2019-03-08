@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using Microsoft.Maps;
 using MvvmWpfApp.Annotations;
 using MvvmWpfApp.ViewModels;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace MvvmWpfApp
 {
@@ -32,6 +33,14 @@ namespace MvvmWpfApp
             BingMap.Height = SystemParameters.PrimaryScreenHeight * 0.80;
             BingMap.Width = SystemParameters.PrimaryScreenWidth * 0.70;
             EventsCheckCB.DataContext = mapVM.Events_ID;
+
+            //************************************
+            //Example Adding PushPin in Jerusalem:
+            Pushpin pushPin = new Pushpin();
+            pushPin.Location = new Location(31.7962419, 35.3154441);
+            BingMap.Children.Add(pushPin);
+            //TODO: Edit the pushPins to binding Reports List
+            //************************************
         }
 
         private MapVM mapVM { get; set; } = new MapVM();
