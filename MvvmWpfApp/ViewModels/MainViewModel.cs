@@ -19,6 +19,32 @@ namespace MvvmWpfApp.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
+
+        #region view models
+        private MapVM _mapVm;
+        public MapVM MapVm
+        {
+            get { return _mapVm; }
+            set
+            {
+                NotifyPropertyChanged();
+                _mapVm = value;
+            }
+        }
+
+        private NewReportFormVM _newReportFormVm;
+        public NewReportFormVM NewReportFormVm
+        {
+            get { return _newReportFormVm; }
+            set
+            {
+                NotifyPropertyChanged();
+                _newReportFormVm = value;
+            }
+        }
+
+        #endregion
+
         #region Parameters
         private readonly IDialogService DialogService;
 
@@ -36,6 +62,8 @@ namespace MvvmWpfApp.ViewModels
         {
             // DialogService is used to handle dialogs
             this.DialogService = new MvvmDialogs.DialogService();
+            MapVm = new MapVM();
+            NewReportFormVm = new NewReportFormVM();
         }
 
         #endregion

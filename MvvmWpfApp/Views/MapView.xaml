@@ -16,9 +16,18 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <xctk:CheckComboBox x:Name="EventsCheckCB" materialDesign:HintAssist.Hint="Select Events To Display Reports On The Map" Text="Select Events To Display Reports On The Map" ItemsSource="{Binding}" Grid.Row="0"/>
-                    <m:Map x:Name="BingMap" Grid.Row="1" CredentialsProvider="AgK_gAfXEpEf0Fp0EZj3Wh8n3U6lR954Mfo6Gh_tVz2TebjjwhNkYf1I0V4CEJwk"
-                           Center="31.7962419,35.3154441" ZoomLevel="7.5"/>
+                <xctk:CheckComboBox x:Name="EventsCheckCB" materialDesign:HintAssist.Hint="Select Events To Display Reports On The Map" Text="Select Events To Display Reports On The Map" ItemsSource="{Binding EventsId}" Grid.Row="0"/>
+                <m:Map x:Name="BingMap" Grid.Row="1" CredentialsProvider="AgK_gAfXEpEf0Fp0EZj3Wh8n3U6lR954Mfo6Gh_tVz2TebjjwhNkYf1I0V4CEJwk"
+                           Center="31.7962419,35.3154441" ZoomLevel="7.5" >
+                    <m:MapItemsControl x:Name="MapItems" ItemsSource="{Binding LocationList}">
+                        <m:MapItemsControl.ItemTemplate>
+                            <DataTemplate>
+                            <m:Pushpin x:Name="Pushpin"  Location="{Binding Path=Location}"
+                                       d:DataContext="{d:DesignInstance m:Pushpin}" />
+                            </DataTemplate>
+                        </m:MapItemsControl.ItemTemplate>
+                    </m:MapItemsControl>
+                </m:Map>
             </Grid>
         </materialDesign:Card>
     </materialDesign:TransitioningContent>

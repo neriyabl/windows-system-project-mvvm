@@ -32,13 +32,18 @@ namespace MvvmWpfApp
             InitializeComponent();
             BingMap.Height = SystemParameters.PrimaryScreenHeight * 0.80;
             BingMap.Width = SystemParameters.PrimaryScreenWidth * 0.70;
-            EventsCheckCB.DataContext = mapVM.Events_ID;
-
-            //************************************
-            //Example Adding PushPin in Jerusalem:
             Pushpin pushPin = new Pushpin();
             pushPin.Location = new Location(31.7962419, 35.3154441);
-            BingMap.Children.Add(pushPin);
+            Pushpin pushPin2 = new Pushpin();
+            pushPin2.Location = new Location(31.8962419, 35.5154441);
+            mapVM.LocationList.Add(pushPin);
+            mapVM.LocationList.Add(pushPin2);
+            DataContext = mapVM;
+            //************************************
+            //Example Adding PushPin in Jerusalem:
+            //Pushpin pushPin = new Pushpin();
+            //pushPin.Location = new Location(31.7962419, 35.3154441);
+            //BingMap.Children.Add(pushPin);
             //TODO: Edit the pushPins to binding Reports List
             //************************************
         }
