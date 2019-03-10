@@ -48,6 +48,11 @@ namespace MvvmWpfApp.ViewModels
             this.reportModel = FormModel.Report.Clone() as Report;
             AddReportCommand = new RelayCommand<NewReportFormModel>(formModel =>
                 {
+                    if(reportModel.Name == "" ||
+                    reportModel.Address == "" ||
+                    reportModel.NoiseIntensity == 0 ||
+                    reportModel.NumOfExplosions == 0)
+                        return;
                     formModel.Report = reportModel.Clone() as Report;
                     Report = new Report();
                     formModel.AddReport();

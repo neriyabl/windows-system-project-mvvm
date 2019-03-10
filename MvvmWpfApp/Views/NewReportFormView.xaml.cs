@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -71,12 +72,19 @@ namespace MvvmWpfApp.Views
             DataContext = ReportFormVm;
             SaveButton.Command = ReportFormVm.AddReportCommand;
             SaveButton.CommandParameter = ReportFormVm.FormModel;
+            SaveButton.IsEnabled = false;
             ReportFormVm.PropertyChanged += (sender, args) => InitForm();
         }
 
-        private void ActionButton_OnButtonClick(object sender, EventArgs e)
+        private void SaveEnableCheck(object sender, TextChangedEventArgs e)
         {
-            //throw new NotImplementedException();
+            int _;
+            SaveButton.IsEnabled = AddressTextBox.Text != "" &&
+                                   NameTextBox.Text != "" &&
+                                   !(NoiseIntensityTextBox.Text == "0" ||
+                                   !int.TryParse(NoiseIntensityTextBox.Text, out _)) &&
+                                   !(NumOfExplosionsTextBox.Text == "0" ||
+                                   !int.TryParse(NumOfExplosionsTextBox.Text, out _));
         }
     }
 }

@@ -9,16 +9,16 @@ namespace MvvmWpfApp.ViewModels
 {
     class MapVM
     {
+        public MapModel mapModel { get; set; }
+        public List<string> Events_ID { get; set; } = new List<string>();
+
         public MapVM()
         {
             mapModel = new MapModel();
             foreach (var _event in mapModel.Events)
             {
-                Events_ID.Add(_event.Id.ToString() + ": " + _event.StartTime.ToString());
+                Events_ID.Add(_event.Id + ": " + _event.StartTime);
             }
         }
-
-        public MapModel mapModel { get; set; }
-        public List<string> Events_ID { get; set; } = new List<string>();
     }
 }

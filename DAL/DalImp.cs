@@ -143,6 +143,11 @@ namespace DAL
                 using (var db = new ProjectContext())
                 {
                     resReport = db.Reports.Add(report);
+                    if (report.Event.Id != 0)
+                    {
+                        resReport.Event.Reports.Add(resReport);
+                        db.Events.Attach(resReport.Event);
+                    }
                     await db.SaveChangesAsync();
                 }
                 if (resReport.Id != null) return resReport;
