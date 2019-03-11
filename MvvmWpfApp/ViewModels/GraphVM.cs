@@ -14,7 +14,7 @@ using System.Runtime.CompilerServices;
 
 namespace MvvmWpfApp.ViewModels
 {
-    class GraphVM : INotifyPropertyChanged
+    public class GraphVM : INotifyPropertyChanged
     {
         public GraphModel GraphModel { get; set; }
         public ObservableCollection<string> EventsId { get; set; }

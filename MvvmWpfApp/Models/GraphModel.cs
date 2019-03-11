@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MvvmWpfApp.Models
 {
-    class GraphModel : INotifyPropertyChanged
+    public class GraphModel : INotifyPropertyChanged
     {
         private readonly IBl _bl = new FactoryBl().GetInstance();
 
