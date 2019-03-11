@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using BE;
 using Microsoft.Maps.MapControl.WPF;
 using MvvmWpfApp.Annotations;
@@ -30,6 +31,13 @@ namespace MvvmWpfApp.ViewModels
         public MapVM()
         {
             MapModel = new MapModel();
+            MapModel.PropertyChanged += (sender, args) =>
+            {
+                if (args.PropertyName == "Events")
+                {
+                   App.Current.Dispatcher.Invoke(SetEventsIds);
+                }
+            };
             SelectedEvents = new ObservableCollection<string>();
             Reports = new ObservableCollection<Report>();
             EventsId = new ObservableCollection<string>();
@@ -45,12 +53,17 @@ namespace MvvmWpfApp.ViewModels
             };
 
             SelectedEventsComand = new RelayCommand<string>(SelectedChanged);
+
+            SetEventsIds();
+        }
+
+        private void SetEventsIds()
+        {
+            EventsId.Clear();
             foreach (var _event in MapModel.Events)
             {
                 EventsId.Add(_event.Id + ": " + _event.StartTime);
             }
-
-            
         }
 
         private void SelectedChanged(string obj)

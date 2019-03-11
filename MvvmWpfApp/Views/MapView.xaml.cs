@@ -46,8 +46,7 @@ namespace MvvmWpfApp
 
         public MapVM MapVm
         {
-            get
-            { return (MapVM) GetValue(MapVmProperty); }
+            get { return (MapVM)GetValue(MapVmProperty); }
             set
             {
                 SetValue(MapVmProperty, value);
