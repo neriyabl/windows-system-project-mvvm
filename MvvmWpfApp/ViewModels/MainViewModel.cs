@@ -17,7 +17,7 @@ using MvvmWpfApp.Utils;
 
 namespace MvvmWpfApp.ViewModels
 {
-    class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
 
         #region view models

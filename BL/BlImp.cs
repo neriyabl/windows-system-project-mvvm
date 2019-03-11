@@ -113,6 +113,7 @@ namespace BL
         {
             return _dal.GetReport(id);
         }
+
         #endregion
     }
 }

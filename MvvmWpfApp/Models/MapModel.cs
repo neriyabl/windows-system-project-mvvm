@@ -8,19 +8,24 @@ using System.Threading.Tasks;
 
 namespace MvvmWpfApp.Models
 {
-    class MapModel
+    public class MapModel
     {
         private readonly IBl _bl = new FactoryBl().GetInstance();
         public List<Event> Events { get; set; } = new List<Event>();
 
         public MapModel()
         {
-            getEvents();
+            GetEvents();
         }
 
-        public void getEvents()
+        public void GetEvents()
         {
             Events = _bl.GetEvents();
+        }
+
+        public async Task<IEnumerable<Report>> GetReports(int eventId)
+        {
+            return await _bl.GetReportsAsync(r => r.Event.Id == eventId);
         }
     }
 }

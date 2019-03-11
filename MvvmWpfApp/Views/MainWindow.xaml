@@ -35,7 +35,7 @@
         <KeyBinding Command="{Binding ExitCmd}" Gesture="Alt+F4" />
     </Window.InputBindings>
 
-    <DockPanel>
+    <DockPanel d:DataContext="{d:DesignInstance localVMs:MainViewModel }">
         <!-- File Menu -->
         <Grid DockPanel.Dock="Top"  Background="{DynamicResource PrimaryHueMidBrush}">
             <Grid.ColumnDefinitions>
@@ -62,8 +62,8 @@
 
         <DockPanel>
             <!-- Place here your content -->
-            <local:NewReportFormView x:Name="ReportFormView"/>
-            <MvvmWpfApp:MapView x:Name="MapView"/>
+            <local:NewReportFormView x:Name="ReportFormView" ReportFormVm="{Binding NewReportFormVm}"/>
+            <MvvmWpfApp:MapView x:Name="MapView" MapVm="{Binding MapVm}"/>
         </DockPanel>
     </DockPanel>
 </Window>

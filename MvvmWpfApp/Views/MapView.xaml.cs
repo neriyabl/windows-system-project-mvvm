@@ -24,7 +24,7 @@ namespace MvvmWpfApp
     /// <summary>
     /// Interaction logic for MapUC.xaml
     /// </summary>
-    public partial class MapView : UserControl, INotifyPropertyChanged
+    public partial class MapView : UserControl
     {
 
         public MapView()
@@ -32,13 +32,6 @@ namespace MvvmWpfApp
             InitializeComponent();
             BingMap.Height = SystemParameters.PrimaryScreenHeight * 0.80;
             BingMap.Width = SystemParameters.PrimaryScreenWidth * 0.70;
-            Pushpin pushPin = new Pushpin();
-            pushPin.Location = new Location(31.7962419, 35.3154441);
-            Pushpin pushPin2 = new Pushpin();
-            pushPin2.Location = new Location(31.8962419, 35.5154441);
-            mapVM.LocationList.Add(pushPin);
-            mapVM.LocationList.Add(pushPin2);
-            DataContext = mapVM;
             //************************************
             //Example Adding PushPin in Jerusalem:
             //Pushpin pushPin = new Pushpin();
@@ -48,14 +41,24 @@ namespace MvvmWpfApp
             //************************************
         }
 
-        private MapVM mapVM { get; set; } = new MapVM();
+        public static readonly DependencyProperty MapVmProperty = DependencyProperty.Register(
+            "MapVm", typeof(MapVM), typeof(MapView), new PropertyMetadata(default(MapVM)));
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public MapVM MapVm
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get
+            { return (MapVM) GetValue(MapVmProperty); }
+            set
+            {
+                SetValue(MapVmProperty, value);
+                value.PropertyChanged += PropertyChanged;
+                DataContext = MapVm;
+            }
+        }
+
+        private void PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            DataContext = MapVm;
         }
     }
 }
