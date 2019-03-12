@@ -34,8 +34,7 @@ namespace MvvmWpfApp.Views
             ReportFormView.ReportFormVm = MainViewModel.NewReportFormVm;
             MapView.MapVm = MainViewModel.MapVm;
 
-            //TODO: Check why this make error:
-            //GraphView.GraphVm = MainViewModel.GraphVm;
+            GraphView.GraphVm = MainViewModel.GraphVm;
 
             DataContext = MainViewModel;
             Closing += MainView_Closing;
