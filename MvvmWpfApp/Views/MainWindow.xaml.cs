@@ -33,6 +33,9 @@ namespace MvvmWpfApp.Views
             MainViewModel = new MainViewModel();
             ReportFormView.ReportFormVm = MainViewModel.NewReportFormVm;
             MapView.MapVm = MainViewModel.MapVm;
+
+            GraphView.GraphVm = MainViewModel.GraphVm;
+
             DataContext = MainViewModel;
             Closing += MainView_Closing;
         }
@@ -52,7 +55,7 @@ namespace MvvmWpfApp.Views
 
         private void SelectedTabChange(object sender, RoutedEventArgs e)
         {
-            int index = int.Parse(((Button) e.Source).Uid);
+            int index = int.Parse(((Button)e.Source).Uid);
 
             GridCursor.Margin = new Thickness((150 * index), 0, 0, 0);
 
@@ -66,12 +69,15 @@ namespace MvvmWpfApp.Views
                 #endregion
 
                 #region toHide
+                GraphView.Visibility = Visibility.Collapsed;
 
                 #endregion
+
             }
             else if (index == 1)
             {
                 #region toShow
+                GraphView.Visibility = Visibility.Visible;
 
                 #endregion
 

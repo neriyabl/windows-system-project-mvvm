@@ -27,8 +27,8 @@ namespace MvvmWpfApp.ViewModels
             get { return _mapVm; }
             set
             {
-                NotifyPropertyChanged();
                 _mapVm = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -38,8 +38,19 @@ namespace MvvmWpfApp.ViewModels
             get { return _newReportFormVm; }
             set
             {
-                NotifyPropertyChanged();
                 _newReportFormVm = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private GraphVM _graphVm;
+        public GraphVM GraphVm
+        {
+            get { return _graphVm; }
+            set
+            {
+                _graphVm = value;
+                NotifyPropertyChanged();
             }
         }
 
@@ -64,6 +75,7 @@ namespace MvvmWpfApp.ViewModels
             this.DialogService = new MvvmDialogs.DialogService();
             MapVm = new MapVM();
             NewReportFormVm = new NewReportFormVM();
+            GraphVm = new GraphVM();
         }
 
         #endregion

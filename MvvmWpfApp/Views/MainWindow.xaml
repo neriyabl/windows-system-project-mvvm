@@ -11,7 +11,8 @@
         xmlns:md="https://github.com/fantasticfiasco/mvvm-dialogs"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
-        xmlns:MvvmWpfApp="clr-namespace:MvvmWpfApp"  x:Class="MvvmWpfApp.Views.MainWindow"
+        xmlns:mvvmWpfApp="clr-namespace:MvvmWpfApp"
+        x:Class="MvvmWpfApp.Views.MainWindow"
         md:DialogServiceViews.IsRegistered="True"
         mc:Ignorable="d"
         Background="{DynamicResource MaterialDesignPaper}"
@@ -63,7 +64,8 @@
         <DockPanel>
             <!-- Place here your content -->
             <local:NewReportFormView x:Name="ReportFormView" ReportFormVm="{Binding NewReportFormVm}"/>
-            <MvvmWpfApp:MapView x:Name="MapView" MapVm="{Binding MapVm}"/>
+            <mvvmWpfApp:MapView x:Name="MapView" MapVm="{Binding MapVm}"/>
+            <mvvmWpfApp:GraphView x:Name="GraphView" GraphVm="{Binding GraphVm}" Visibility="Collapsed"/>
         </DockPanel>
     </DockPanel>
 </Window>
