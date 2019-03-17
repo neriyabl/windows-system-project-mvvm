@@ -59,7 +59,6 @@ namespace BL
         #region Reports
         public Task<Report> AddReport(Report report)
         {
-            //TODO after adding endTime to event replace this disgusting query
             List<Event> events = (from e in GetEvents()
                                   where e.StartTime <= report.Time.AddMinutes(10) &&
                                   e.EndTime >= report.Time.AddMinutes(-10)
@@ -114,6 +113,7 @@ namespace BL
         {
             return _dal.GetReport(id);
         }
+
         #endregion
     }
 }

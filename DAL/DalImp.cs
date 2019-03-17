@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
@@ -204,9 +205,9 @@ namespace DAL
             List<Report> reports;
             using (var db = new ProjectContext())
             {
-                reports = (from report in db.Reports
-                           where predicate == null || predicate(report)
-                           select report).ToList();
+                reports = db.Reports.Include(report => report.Event).ToList();
+                if (predicate != null)
+                    reports = reports.Where(r => predicate(r)).ToList();
             }
             return reports;
         }
@@ -221,9 +222,9 @@ namespace DAL
             List<Report> reports;
             using (var db = new ProjectContext())
             {
-                reports = await (from report in db.Reports
-                                 where predicate == null || predicate(report)
-                                 select report).ToListAsync();
+                reports = await db.Reports.Include(report => report.Event).ToListAsync();
+                if (predicate != null)
+                    reports = reports.Where(r => predicate(r)).ToList();
             }
             return reports;
         }

@@ -25,16 +25,13 @@ namespace MvvmWpfApp.Views
     /// </summary>
     public partial class NewReportFormView : UserControl, INotifyPropertyChanged
     {
-        private NewReportFormVM _reportFormVm;
+        public static readonly DependencyProperty ReportFormVmProperty = DependencyProperty.Register(
+            "ReportFormVm", typeof(NewReportFormVM), typeof(NewReportFormView), new PropertyMetadata(default(NewReportFormVM)));
+
         public NewReportFormVM ReportFormVm
         {
-            get { return _reportFormVm; }
-            set
-            {
-                _reportFormVm = value;
-                OnPropertyChanged();
-            }
-
+            get { return (NewReportFormVM) GetValue(ReportFormVmProperty); }
+            set { SetValue(ReportFormVmProperty, value); }
         }
 
         public NewReportFormView()
