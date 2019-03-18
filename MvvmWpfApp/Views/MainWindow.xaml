@@ -18,6 +18,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="{Binding Title}"
+        Icon="emergency.ico"
         WindowState="Maximized">
 
     <Window.Resources>

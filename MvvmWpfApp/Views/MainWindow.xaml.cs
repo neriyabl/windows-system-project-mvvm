@@ -33,7 +33,7 @@ namespace MvvmWpfApp.Views
             MainViewModel = new MainViewModel();
             ReportFormView.ReportFormVm = MainViewModel.NewReportFormVm;
             MapView.MapVm = MainViewModel.MapVm;
-
+            Title = "Red Alert";
             GraphView.GraphVm = MainViewModel.GraphVm;
 
             DataContext = MainViewModel;
