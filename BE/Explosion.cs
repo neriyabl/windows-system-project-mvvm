@@ -14,6 +14,10 @@ namespace BE
         public string ApproxLatitude { get; set; }
         public string ApproxLongitude { get; set; }
 
+
+
+
+
         public object Clone()
         {
             return new Explosion()
