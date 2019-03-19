@@ -45,7 +45,7 @@ namespace MvvmWpfApp.ViewModels
         public NewReportFormVM()
         {
             FormModel = new NewReportFormModel();
-            this.reportModel = FormModel.Report.Clone() as Report;
+            reportModel = FormModel.Report.Clone() as Report;
             AddReportCommand = new RelayCommand<NewReportFormModel>(formModel =>
                 {
                     if(reportModel.Name == "" ||
