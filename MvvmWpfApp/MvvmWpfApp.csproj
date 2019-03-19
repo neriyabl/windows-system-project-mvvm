@@ -118,10 +118,15 @@
     <Compile Include="Controls\ActionButton.xaml.cs">
       <DependentUpon>ActionButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChooseExplosionsModel.cs" />
     <Compile Include="Models\GraphModel.cs" />
     <Compile Include="Models\MapModel.cs" />
+    <Compile Include="ViewModels\ChooseExplosionsVM.cs" />
     <Compile Include="ViewModels\GraphVM.cs" />
     <Compile Include="ViewModels\MapVM.cs" />
+    <Compile Include="Views\ChooseExplosionsView.xaml.cs">
+      <DependentUpon>ChooseExplosionsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GraphView.xaml.cs">
       <DependentUpon>GraphView.xaml</DependentUpon>
     </Compile>
@@ -135,6 +140,10 @@
       <DependentUpon>NewReportFormView.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\ActionButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChooseExplosionsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
