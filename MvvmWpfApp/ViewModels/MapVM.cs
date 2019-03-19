@@ -18,10 +18,10 @@ using MvvmWpfApp.Utils;
 
 namespace MvvmWpfApp.ViewModels
 {
-    public class MapVM: INotifyPropertyChanged
+    public class MapVM : INotifyPropertyChanged
     {
         public MapModel MapModel { get; set; }
-        public ObservableCollection<string>EventsId { get; set; }
+        public ObservableCollection<string> EventsId { get; set; }
         public ObservableCollection<string> SelectedEvents { get; set; }
         public ObservableCollection<Pushpin> LocationList { get; set; }
         public ObservableCollection<Report> Reports { get; set; }
@@ -35,7 +35,7 @@ namespace MvvmWpfApp.ViewModels
             {
                 if (args.PropertyName == "Events")
                 {
-                   App.Current.Dispatcher.Invoke(SetEventsIds);
+                    App.Current.Dispatcher.Invoke(SetEventsIds);
                 }
             };
             SelectedEvents = new ObservableCollection<string>();
