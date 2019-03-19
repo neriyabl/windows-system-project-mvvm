@@ -28,5 +28,15 @@ namespace DAL
         Report GetReport(int? id);
         #endregion
 
+        #region Explosion methods
+
+        Task<List<Explosion>> GetExplosion(Predicate<Explosion> predicate = null);
+        Task<Explosion> GetExplosion(int? eventId);
+        Task<Explosion> AddExplosion(Explosion explosion);
+        void UpdateExplosion(Explosion explosion);
+        void RemoveExplosion(int? explosionId);
+
+        #endregion
+
     }
 }
