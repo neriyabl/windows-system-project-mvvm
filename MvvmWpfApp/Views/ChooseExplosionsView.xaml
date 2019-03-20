@@ -5,17 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MvvmWpfApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="360">
-    <Grid Margin="10">
+             d:DesignHeight="200" d:DesignWidth="380"
+             MaxHeight="200" MaxWidth="380">
+    <Grid Margin="3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label x:Name="EventLabel" Margin="10" Content="Choose event from list:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
         <ComboBox x:Name="EventsComboBox" Margin="10" Grid.Row="0" Grid.Column="1"/>

@@ -43,7 +43,12 @@ namespace MvvmWpfApp.ViewModels
 
         ICollection<Explosion> getExplosionsFromEvent(Event _event)
         {
-            return _event.Explosions;
+            if (_event != null && _event.Explosions.Count > 0)
+            {
+                return _event.Explosions;
+            }
+
+            return new List<Explosion>();
         }
 
         private void updateExplosionsFromEvent()

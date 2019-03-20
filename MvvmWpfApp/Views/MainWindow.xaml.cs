@@ -35,6 +35,7 @@ namespace MvvmWpfApp.Views
             MapView.MapVm = MainViewModel.MapVm;
             Title = "Red Alert";
             GraphView.GraphVm = MainViewModel.GraphVm;
+            ChooseExplosionsView.ChooseExplosionsVm = MainViewModel.ChooseExplosionsVm;
 
             DataContext = MainViewModel;
             Closing += MainView_Closing;
@@ -70,7 +71,7 @@ namespace MvvmWpfApp.Views
 
                 #region toHide
                 GraphView.Visibility = Visibility.Collapsed;
-
+                ChooseExplosionsView.Visibility = Visibility.Collapsed;
                 #endregion
 
             }
@@ -78,7 +79,7 @@ namespace MvvmWpfApp.Views
             {
                 #region toShow
                 GraphView.Visibility = Visibility.Visible;
-
+                ChooseExplosionsView.Visibility = Visibility.Visible;
                 #endregion
 
                 #region toHide

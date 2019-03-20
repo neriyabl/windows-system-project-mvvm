@@ -54,6 +54,17 @@ namespace MvvmWpfApp.ViewModels
             }
         }
 
+        private ChooseExplosionsVM _chooseExplosionsVm;
+        public ChooseExplosionsVM ChooseExplosionsVm
+        {
+            get { return _chooseExplosionsVm; }
+            set
+            {
+                _chooseExplosionsVm = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Parameters
@@ -76,6 +87,7 @@ namespace MvvmWpfApp.ViewModels
             MapVm = new MapVM();
             NewReportFormVm = new NewReportFormVM();
             GraphVm = new GraphVM();
+            ChooseExplosionsVm = new ChooseExplosionsVM();
         }
 
         #endregion

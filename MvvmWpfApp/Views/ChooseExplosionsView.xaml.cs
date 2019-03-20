@@ -25,6 +25,8 @@ namespace MvvmWpfApp.Views
         public ChooseExplosionsView()
         {
             InitializeComponent();
+            this.Height = SystemParameters.PrimaryScreenHeight * 0.50;
+            this.Width = SystemParameters.PrimaryScreenWidth * 0.60;
         }
         public static readonly DependencyProperty ChooseExplosionsVmProperty = DependencyProperty.Register(
    "ChooseExplosionsVm", typeof(ChooseExplosionsVM), typeof(ChooseExplosionsView), new PropertyMetadata(default(ChooseExplosionsVM)));
