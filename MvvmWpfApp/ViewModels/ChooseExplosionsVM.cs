@@ -41,7 +41,20 @@ namespace MvvmWpfApp.ViewModels
             updateExplosionsFromEvent();
         }
 
-        ICollection<Explosion> getExplosionsFromEvent(Event _event)
+        public List<string> getAllEvents()
+        {
+            List<string> events_start_time = new List<string>();
+            if (chooseExplosionsModel.Events.Count > 0)
+            {
+                foreach (var _event in chooseExplosionsModel.Events)
+                {
+                    events_start_time.Add(_event.StartTime.ToString());
+                }
+            }
+            return events_start_time;
+        }
+
+        public ICollection<Explosion> getExplosionsFromEvent(Event _event)
         {
             if (_event != null && _event.Explosions.Count > 0)
             {

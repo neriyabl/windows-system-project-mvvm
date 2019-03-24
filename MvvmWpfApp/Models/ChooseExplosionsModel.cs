@@ -38,7 +38,10 @@ namespace MvvmWpfApp.Models
 
         public void GetEvents()
         {
-            Events = _bl.GetEvents();
+            if (_bl.GetEvents().Count > 0)
+            {
+                Events = _bl.GetEvents();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
