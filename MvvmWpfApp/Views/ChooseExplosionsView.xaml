@@ -23,13 +23,13 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <Label x:Name="EventLabel" Margin="10" Content="Choose event from list:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
-                <ComboBox x:Name="EventsComboBox" Margin="10" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding}"/>
+                <ComboBox x:Name="EventsComboBox" Margin="10" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding}" SelectionChanged="EventsComboBox_SelectionChanged"/>
                 <Label x:Name="ExplosionLabel" Margin="10" Content="Choose explosion from list:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
                 <ComboBox x:Name="ExplosionsComboBox" Margin="10" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding}"/>
                 <Label x:Name="ApproxAdressLabel" Margin="10" Content="Approximate adress:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-                <TextBlock x:Name="ApproxAdressTblock" Margin="10" Grid.Row="2" Grid.Column="1"/>
+                <TextBlock x:Name="ApproxAdressTblock" Margin="10" Grid.Row="2" Grid.Column="1" Text="{Binding}"/>
                 <Label x:Name="RealAdressLabel" Margin="10" Content="Real adress:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
-                <TextBox x:Name="RealAdressTbox" Margin="10" Grid.Row="3" Grid.Column="1"/>
+                <TextBox x:Name="RealAdressTbox" Margin="10" Grid.Row="3" Grid.Column="1" Text="{Binding}"/>
                 <Button x:Name="UpdateButton" FontSize="18" Content="Update" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"></Button>
             </Grid>
         </materialDesign:Card>
