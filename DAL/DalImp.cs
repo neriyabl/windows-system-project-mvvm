@@ -249,7 +249,7 @@ namespace DAL
 
         #region Explosions
 
-        public async Task<List<Explosion>> GetExplosion(Predicate<Explosion> predicate = null)
+        public async Task<List<Explosion>> GetExplosions(Predicate<Explosion> predicate = null)
         {
             List<Explosion> explosions;
             using (var db = new ProjectContext())
@@ -261,25 +261,25 @@ namespace DAL
             return explosions;
         }
 
-        public async Task<Explosion> GetExplosion(int? eventId)
+        public async Task<Explosion> GetExplosionByEventId(int? eventId)
         {
             Explosion explosion;
             using (var db = new ProjectContext())
             {
-                explosion = db.Explosions.SingleOrDefault(r => r.Id == eventId);
+                explosion = await db.Explosions.SingleOrDefaultAsync(exp => exp.Event.Id == eventId);
             }
             return explosion;
         }
 
         public async Task<Explosion> AddExplosion(Explosion explosion)
         {
-            if (explosion.Id != null && GetExplosion(explosion.Id) != null)
+            if (explosion.Id != null && GetExplosions(exp => exp.Id == explosion.Id) != null)
             {
                 throw new Exception("the explosion already exist");
             }
             try
             {
-                Explosion resExplosion = new Explosion();
+                Explosion resExplosion;
                 using (var db = new ProjectContext())
                 {
                     resExplosion = db.Explosions.Add(explosion);
@@ -302,7 +302,8 @@ namespace DAL
 
         public async void UpdateExplosion(Explosion explosion)
         {
-            if (GetExplosion(explosion.Id) == null)
+            var findExplosion = await GetExplosions(exp => exp.Id == explosion.Id);
+            if (findExplosion == null || findExplosion.Count == 0)
                 throw new Exception("the explosion to update not found");
             using (var db = new ProjectContext())
             {
@@ -314,11 +315,11 @@ namespace DAL
 
         public async void RemoveExplosion(int? explosionId)
         {
-            var explosionToRemove = GetExplosion(explosionId);
-            if (explosionToRemove == null) return;
+            var explosionToRemove = await GetExplosions(exp => exp.Id == explosionId);
+            if (explosionToRemove == null || explosionToRemove.Count == 0) return;
             using (var db = new ProjectContext())
             {
-                db.Explosions.Remove(explosionToRemove.Result);
+                db.Explosions.Remove(explosionToRemove.First());
                 await db.SaveChangesAsync();
             }
         }
