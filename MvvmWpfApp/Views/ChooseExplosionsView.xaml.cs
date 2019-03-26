@@ -1,4 +1,5 @@
-﻿using MvvmWpfApp.ViewModels;
+﻿using BE;
+using MvvmWpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,5 +50,10 @@ namespace MvvmWpfApp.Views
             DataContext = ChooseExplosionsVm;
         }
 
+        private void EventsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Event _event = ChooseExplosionsVm.getEventByStartTime((sender as ComboBox).SelectedItem as string);
+            ExplosionsComboBox.DataContext = _event.Explosions;
+        }
     }
 }

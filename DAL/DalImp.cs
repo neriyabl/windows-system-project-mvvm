@@ -244,11 +244,87 @@ namespace DAL
             return report;
         }
 
+
         #endregion
 
         #region Explosions
 
-        
+        public async Task<List<Explosion>> GetExplosions(Predicate<Explosion> predicate = null)
+        {
+            List<Explosion> explosions;
+            using (var db = new ProjectContext())
+            {
+                explosions = await db.Explosions.Include(report => report.Event).ToListAsync();
+                if (predicate != null)
+                    explosions = explosions.Where(r => predicate(r)).ToList();
+            }
+            return explosions;
+        }
+
+        public async Task<Explosion> GetExplosionByEventId(int? eventId)
+        {
+            Explosion explosion;
+            using (var db = new ProjectContext())
+            {
+                explosion = await db.Explosions.SingleOrDefaultAsync(exp => exp.Event.Id == eventId);
+            }
+            return explosion;
+        }
+
+        public async Task<Explosion> AddExplosion(Explosion explosion)
+        {
+            if (explosion.Id != null && GetExplosions(exp => exp.Id == explosion.Id) != null)
+            {
+                throw new Exception("the explosion already exist");
+            }
+            try
+            {
+                Explosion resExplosion;
+                using (var db = new ProjectContext())
+                {
+                    resExplosion = db.Explosions.Add(explosion);
+                    if (explosion.Event.Id != 0)
+                    {
+                        resExplosion.Event.Explosions.Add(resExplosion);
+                        db.Events.Attach(resExplosion.Event);
+                    }
+                    await db.SaveChangesAsync(); // waits for "SaveChangesAsync" to be completed
+                }
+                if (resExplosion.Id != null) return explosion;
+                throw new Exception("id not updated wen the explosion saved");
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public async void UpdateExplosion(Explosion explosion)
+        {
+            var findExplosion = await GetExplosions(exp => exp.Id == explosion.Id);
+            if (findExplosion == null || findExplosion.Count == 0)
+                throw new Exception("the explosion to update not found");
+            using (var db = new ProjectContext())
+            {
+                db.Entry(explosion);
+                db.Explosions.AddOrUpdate(explosion);
+                await db.SaveChangesAsync();
+            }
+        }
+
+        public async void RemoveExplosion(int? explosionId)
+        {
+            var explosionToRemove = await GetExplosions(exp => exp.Id == explosionId);
+            if (explosionToRemove == null || explosionToRemove.Count == 0) return;
+            using (var db = new ProjectContext())
+            {
+                db.Explosions.Remove(explosionToRemove.First());
+                await db.SaveChangesAsync();
+            }
+        }
+
+
 
         #endregion
     }

@@ -64,6 +64,13 @@ namespace MvvmWpfApp.ViewModels
             return new List<Explosion>();
         }
 
+        public Event getEventByStartTime(string start_time)
+        {
+            Event _event = new Event();
+            _event =  chooseExplosionsModel.Events.Find(s => s.StartTime.ToString().Equals(start_time));
+            return _event;
+        }
+
         private void updateExplosionsFromEvent()
         {
             ExplosionsFromEvent.Clear();
