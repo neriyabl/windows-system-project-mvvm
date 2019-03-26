@@ -30,7 +30,7 @@ namespace DAL
 
         #region Explosion methods
 
-        Task<List<Explosion>> GetExplosion(Predicate<Explosion> predicate = null);
+        Task<List<Explosion>> GetExplosions(Predicate<Explosion> predicate = null);
         Task<Explosion> GetExplosionByEventId(int? eventId);
         Task<Explosion> AddExplosion(Explosion explosion);
         void UpdateExplosion(Explosion explosion);

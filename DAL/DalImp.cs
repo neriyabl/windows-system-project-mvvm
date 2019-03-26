@@ -79,13 +79,13 @@ namespace DAL
                 if (predicate != null)
                 {
                     events = (from _event in db.Events
-                              where predicate(_event)
-                              select _event).ToList();
+                        where predicate(_event)
+                        select _event).ToList();
                 }
                 else
                 {
                     events = (from _event in db.Events
-                              select _event).ToList();
+                        select _event).ToList();
                 }
             }
             return events;
@@ -102,8 +102,8 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 events = await (from _event in db.Events
-                                where predicate == null || predicate(_event)
-                                select _event).ToListAsync();
+                    where predicate == null || predicate(_event)
+                    select _event).ToListAsync();
             }
             return events;
         }
@@ -153,7 +153,6 @@ namespace DAL
                 }
                 if (resReport.Id != null) return resReport;
                 throw new Exception("id not updated wen the report saved");
-
             }
             catch (Exception e)
             {
@@ -244,7 +243,6 @@ namespace DAL
             return report;
         }
 
-
         #endregion
 
         #region Explosions
@@ -292,7 +290,6 @@ namespace DAL
                 }
                 if (resExplosion.Id != null) return explosion;
                 throw new Exception("id not updated wen the explosion saved");
-
             }
             catch (Exception e)
             {
@@ -323,8 +320,6 @@ namespace DAL
                 await db.SaveChangesAsync();
             }
         }
-
-
 
         #endregion
     }
