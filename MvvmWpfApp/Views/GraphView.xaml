@@ -11,7 +11,11 @@
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight}">
         <materialDesign:Card  Margin="10" Padding="2" VerticalAlignment="Stretch">
             <Grid>
-                <oxy:Plot Title="{Binding Title}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <oxy:Plot Title="{Binding Title}" Grid.Row="0">
                     <oxy:Plot.Series>
                         <oxy:LineSeries ItemsSource="{Binding Points}"/>
                     </oxy:Plot.Series>
