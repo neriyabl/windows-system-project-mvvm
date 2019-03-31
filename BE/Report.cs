@@ -21,6 +21,12 @@ namespace BE
         public int NoiseIntensity { get; set; }
         public int NumOfExplosions { get; set; }
         public Event Event { get; set; }
+        public int ClusterId { get; set; }
+
+        public GeoCoordinate GetCoordinate()
+        {
+            return new GeoCoordinate(Latitude, Longitude);
+        }
 
         public Report()
         {
@@ -40,6 +46,7 @@ namespace BE
                 NoiseIntensity = NoiseIntensity,
                 NumOfExplosions = NumOfExplosions,
                 Event = Event?.Clone() as Event,
+                ClusterId=ClusterId,
             };
         }
     }
