@@ -82,7 +82,30 @@ namespace BL
             }
             else if (events.Count > 1)
             {
-                //TODO check whitch event contain the report time or which is the closest
+                Event closestEvent = events[0]; // base case
+                double tmpInterval, minInterval = Math.Abs((report.Time - closestEvent.StartTime).TotalMinutes); 
+
+                foreach (Event ev in events) // check closest start time
+                {
+                    tmpInterval = Math.Abs((report.Time - ev.StartTime).TotalMinutes);
+                    if (tmpInterval < minInterval)
+                    {
+                        minInterval = tmpInterval;
+                        closestEvent = ev;
+                    }
+                }
+
+                foreach (Event ev in events) // check closest end time
+                {
+                    tmpInterval = Math.Abs((report.Time - ev.EndTime).TotalMinutes);
+                    if (tmpInterval < minInterval)
+                    {
+                        minInterval = tmpInterval;
+                        closestEvent = ev;
+                    }
+                }
+
+                report.Event = closestEvent;
             }
             else
             {
