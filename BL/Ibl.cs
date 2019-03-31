@@ -26,5 +26,13 @@ namespace BL
         Task<List<Report>> GetReportsAsync(Predicate<Report> predicate = null);
         Report GetReport(int? id);
         #endregion
+        
+        #region Explosion methods
+        Task<Explosion> AddExplosion(Explosion explosion);
+        void RemoveExplosion(int id);
+        void UpdateExplosion(Explosion explosion);
+        Task<List<Explosion>> GetExplosions(Predicate<Explosion> predicate = null);
+        Explosion GetExplosion(int? id);
+        #endregion
     }
 }
