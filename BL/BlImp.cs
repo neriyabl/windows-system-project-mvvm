@@ -14,6 +14,7 @@ namespace BL
         private IDal _dal = new FactoryDal().GetInstance();
 
         #region Events
+
         public void AddEvent(Event _event)
         {
             _dal.AddEvent(_event);
@@ -57,6 +58,7 @@ namespace BL
         #endregion
 
         #region Reports
+
         public Task<Report> AddReport(Report report)
         {
             List<Event> events = (from e in GetEvents()
@@ -113,7 +115,36 @@ namespace BL
         {
             return _dal.GetReport(id);
         }
+        #endregion
+
+        #region Explosion
+
+        public Task<Explosion> AddExplosion(Explosion explosion)
+        {
+            return _dal.AddExplosion(explosion);
+        }
+
+        public void RemoveExplosion(int id)
+        {
+            _dal.RemoveExplosion(id);
+        }
+
+        public void UpdateExplosion(Explosion explosion)
+        {
+            _dal.UpdateExplosion(explosion);
+        }
+
+        public Task<List<Explosion>> GetExplosions(Predicate<Explosion> predicate = null)
+        {
+            return _dal.GetExplosions(predicate);
+        }
+
+        public Explosion GetExplosion(int? id)
+        {
+            return _dal.GetExplosions(x => x.Id == id).Result.FirstOrDefault();
+        }
 
         #endregion
+
     }
 }

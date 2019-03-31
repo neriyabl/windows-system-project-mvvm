@@ -79,13 +79,13 @@ namespace DAL
                 if (predicate != null)
                 {
                     events = (from _event in db.Events
-                        where predicate(_event)
-                        select _event).ToList();
+                              where predicate(_event)
+                              select _event).ToList();
                 }
                 else
                 {
                     events = (from _event in db.Events
-                        select _event).ToList();
+                              select _event).ToList();
                 }
             }
             return events;
@@ -102,8 +102,8 @@ namespace DAL
             using (var db = new ProjectContext())
             {
                 events = await (from _event in db.Events
-                    where predicate == null || predicate(_event)
-                    select _event).ToListAsync();
+                                where predicate == null || predicate(_event)
+                                select _event).ToListAsync();
             }
             return events;
         }
