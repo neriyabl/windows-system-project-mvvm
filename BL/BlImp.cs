@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -111,8 +112,30 @@ namespace BL
             {
                 report.Event = new Event(report.Time) { StartTime = report.Time };
             }
+
+            updateExplosions(report.Event);
+
             return _dal.AddReport(report);
         }
+
+
+        private void updateExplosions(Event _event)
+        {
+            int averageExplosions = (int)_event.Reports.Average(r => r.NumOfExplosions);
+            KMeans kMeans = new KMeans(_event.Reports, averageExplosions);
+            List<GeoCoordinate> clusters = kMeans.K_Means();
+            foreach (GeoCoordinate g in clusters)
+            {
+                Explosion e = new Explosion
+                {
+                    ApproxLatitude = g.Latitude,
+                    ApproxLongitude = g.Longitude
+                };
+                _event.Explosions.Add(e);
+            }
+
+        }
+
 
         public void RemoveReport(int id)
         {
