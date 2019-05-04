@@ -47,7 +47,15 @@ namespace MvvmWpfApp.Models
 
         public void GetEvents()
         {
-            Events = _bl.GetEvents();
+            if (Events.Count == 0)
+            {
+                Events = _bl.GetEvents();
+            }
+            else
+            {
+                Events.AddRange(_bl.GetEvents(_event => !Events.Exists(e=>e.Id == _event.Id)));
+                OnPropertyChanged(nameof(Events));
+            }
         }
 
         public async Task<IEnumerable<Report>> GetReports(int eventId)

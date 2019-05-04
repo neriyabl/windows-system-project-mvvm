@@ -7,8 +7,9 @@
              xmlns:local="clr-namespace:MvvmWpfApp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:viewModels="clr-namespace:MvvmWpfApp.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="1200">
+             d:DesignHeight="1000" d:DesignWidth="1200" d:DataContext="{d:DesignInstance viewModels:MapVM}">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight}">
         <materialDesign:Card  Margin="10" Padding="2">
             <Grid>
@@ -19,7 +20,8 @@
                 <xctk:CheckComboBox 
                     x:Name="EventsCheckCB" 
                     materialDesign:HintAssist.Hint="Select Events To Display Reports On The Map" 
-                    ItemsSource="{Binding EventsId}"
+                    ItemsSource="{Binding Events}"
+                    SelectedItemsOverride="{Binding SelectedEvents}"
                     Command="{Binding SelectedEventsComand}" 
                     Grid.Row="0"/>
                 <m:Map x:Name="BingMap" Grid.Row="1" CredentialsProvider="AgK_gAfXEpEf0Fp0EZj3Wh8n3U6lR954Mfo6Gh_tVz2TebjjwhNkYf1I0V4CEJwk"
