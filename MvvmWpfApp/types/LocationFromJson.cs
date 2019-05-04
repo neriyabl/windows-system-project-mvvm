@@ -1,4 +1,8 @@
-﻿namespace QuickType
+﻿using System.Windows;
+using System.Windows.Data;
+using BE;
+
+namespace QuickType
 {
     using System;
     using System.Collections.Generic;
@@ -58,7 +62,33 @@
 
         public override string ToString()
         {
-            return Title;
+            return $"{Title}";
+        }
+    }
+
+    public class ResultConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return new Result()
+            {
+                Title = (value as Report)?.Address
+            };
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is Result result)
+            {
+                if (parameter is Report report)
+                {
+                    report.Address = result.ToString();
+                    report.Latitude = result.Position[0];
+                    report.Longitude = result.Position[1];
+                    return report;
+                }
+            }
+            return new {Address="", Latitude=0f, Longitude=0f};
         }
     }
 
