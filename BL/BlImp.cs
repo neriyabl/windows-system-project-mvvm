@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,14 +83,59 @@ namespace BL
             }
             else if (events.Count > 1)
             {
-                //TODO check whitch event contain the report time or which is the closest
+                Event closestEvent = events[0]; // base case
+                double tmpInterval, minInterval = Math.Abs((report.Time - closestEvent.StartTime).TotalMinutes); 
+
+                foreach (Event ev in events) // check closest start time
+                {
+                    tmpInterval = Math.Abs((report.Time - ev.StartTime).TotalMinutes);
+                    if (tmpInterval < minInterval)
+                    {
+                        minInterval = tmpInterval;
+                        closestEvent = ev;
+                    }
+                }
+
+                foreach (Event ev in events) // check closest end time
+                {
+                    tmpInterval = Math.Abs((report.Time - ev.EndTime).TotalMinutes);
+                    if (tmpInterval < minInterval)
+                    {
+                        minInterval = tmpInterval;
+                        closestEvent = ev;
+                    }
+                }
+
+                report.Event = closestEvent;
             }
             else
             {
                 report.Event = new Event(report.Time) { StartTime = report.Time };
             }
+
+            updateExplosions(report.Event);
+
             return _dal.AddReport(report);
         }
+
+
+        private void updateExplosions(Event _event)
+        {
+            int averageExplosions = (int)_event.Reports.Average(r => r.NumOfExplosions);
+            KMeans kMeans = new KMeans(_event.Reports, averageExplosions);
+            List<GeoCoordinate> clusters = kMeans.K_Means();
+            foreach (GeoCoordinate g in clusters)
+            {
+                Explosion e = new Explosion
+                {
+                    ApproxLatitude = g.Latitude,
+                    ApproxLongitude = g.Longitude
+                };
+                _event.Explosions.Add(e);
+            }
+
+        }
+
 
         public void RemoveReport(int id)
         {

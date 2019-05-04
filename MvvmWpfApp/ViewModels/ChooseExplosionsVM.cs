@@ -18,6 +18,46 @@ namespace MvvmWpfApp.ViewModels
         public ChooseExplosionsModel chooseExplosionsModel { get; set; }
         public ObservableCollection<Explosion> ExplosionsFromEvent { get; set; }
         public Event Event { get; set; }
+        public Explosion Explosion { get; set; }
+        
+        public string approxAddress
+        {
+            get { return "Approximate Adddress"; }
+        }
+
+        public string realAddress
+        {
+            get { return "Real Adddress"; }
+            set { }
+        }
+
+        public List<string> Events
+        {
+            get
+            {
+                var eventsStartTime = new List<string>();
+                if (chooseExplosionsModel.Events.Count > 0)
+                {
+                    foreach (var _event in chooseExplosionsModel.Events)
+                    {
+                        eventsStartTime.Add(_event.StartTime.ToString());
+                    }
+                }
+                return eventsStartTime;
+            }
+        }
+
+        public List<Explosion> Explosions
+        {
+            get
+            {
+                if (Event != null && Event.Explosions.Count > 0)
+                {
+                    return (List<Explosion>)Event.Explosions;
+                }
+                return new List<Explosion>();
+            }
+        }
 
         public RelayCommand<string> SelectedEventsComand { get; set; }
         public string Title { get; private set; }
@@ -30,6 +70,7 @@ namespace MvvmWpfApp.ViewModels
                 if (args.PropertyName == "Events")
                 {
                     App.Current.Dispatcher.Invoke(updateExplosionsFromEvent);
+                    App.Current.Dispatcher.Invoke(() => OnPropertyChanged("Events"));
                 }
             };
             ExplosionsFromEvent = new ObservableCollection<Explosion>();
@@ -41,40 +82,19 @@ namespace MvvmWpfApp.ViewModels
             updateExplosionsFromEvent();
         }
 
-        public List<string> getAllEvents()
-        {
-            List<string> events_start_time = new List<string>();
-            if (chooseExplosionsModel.Events.Count > 0)
-            {
-                foreach (var _event in chooseExplosionsModel.Events)
-                {
-                    events_start_time.Add(_event.StartTime.ToString());
-                }
-            }
-            return events_start_time;
-        }
-
-        public ICollection<Explosion> getExplosionsFromEvent(Event _event)
-        {
-            if (_event != null && _event.Explosions.Count > 0)
-            {
-                return _event.Explosions;
-            }
-
-            return new List<Explosion>();
-        }
-
         public Event getEventByStartTime(string start_time)
         {
             Event _event = new Event();
-            _event =  chooseExplosionsModel.Events.Find(s => s.StartTime.ToString().Equals(start_time));
+            _event = chooseExplosionsModel.Events.Find(s => s.StartTime.ToString().Equals(start_time));
             return _event;
         }
 
         private void updateExplosionsFromEvent()
         {
-            ExplosionsFromEvent.Clear();
-            ExplosionsFromEvent = getExplosionsFromEvent(Event) as ObservableCollection<Explosion>;
+            if (ExplosionsFromEvent.Count > 0)
+            {
+                ExplosionsFromEvent = new ObservableCollection<Explosion>(Explosions);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

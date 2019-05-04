@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MvvmWpfApp.Models
@@ -29,7 +30,20 @@ namespace MvvmWpfApp.Models
         public ChooseExplosionsModel()
         {
             GetEvents();
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += checkNewEvents;
+            worker.RunWorkerAsync();
         }
+
+        private void checkNewEvents(object sender, DoWorkEventArgs doWorkEventArgs)
+        {
+            while (true)
+            {
+                GetEvents();
+                Thread.Sleep(5000);
+            }
+        }
+
 
         ICollection<Explosion> getExplosionsFromEvent(Event _event)
         {
