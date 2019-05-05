@@ -26,7 +26,16 @@ namespace MvvmWpfApp.Models
                 OnPropertyChanged();
             }
         }
-
+        private List<Explosion> _explosions = new List<Explosion>();
+        public List<Explosion> Explosions
+        {
+            get { return _explosions; }
+            set
+            {
+                _explosions = value;
+                OnPropertyChanged();
+            }
+        }
         public GraphModel()
         {
             GetEvents();
@@ -40,8 +49,14 @@ namespace MvvmWpfApp.Models
             while (true)
             {
                 GetEvents();
+                GetExplosions();
                 Thread.Sleep(5000);
             }
+        }
+
+        private async void GetExplosions()
+        {
+            Explosions = await _bl.GetExplosions();
         }
 
         public void GetEvents()
