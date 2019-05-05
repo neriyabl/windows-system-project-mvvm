@@ -72,8 +72,9 @@ namespace MvvmWpfApp.ViewModels
 
         private void SelectedChanged(object obj)
         {
-            if (obj is Event @event)
+            if (obj is Event)
             {
+                Event @event = obj as Event;
                 SelectedChangedAsync(@event);
             }
         }
