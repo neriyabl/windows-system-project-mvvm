@@ -42,7 +42,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                //
+                throw new Exception(ex.Message + "\nget event in blimp");
             }
             return new List<Event>();
         }
@@ -113,14 +113,17 @@ namespace BL
                 report.Event = new Event(report.Time) { StartTime = report.Time };
             }
 
-            updateExplosions(report.Event);
+            UpdateExplosions(report);
 
             return _dal.AddReport(report);
         }
 
 
-        private void updateExplosions(Event _event)
+        private async void UpdateExplosions(Report newReport)
         {
+            Event _event = newReport.Event;
+            _event.Reports = await _dal.GetReportsAsync((report => report.Event.Id == _event.Id));
+            _event.Reports.Add(newReport);
             int averageExplosions = (int)_event.Reports.Average(r => r.NumOfExplosions);
             KMeans kMeans = new KMeans(_event.Reports, averageExplosions);
             List<GeoCoordinate> clusters = kMeans.K_Means();
@@ -129,9 +132,11 @@ namespace BL
                 Explosion e = new Explosion
                 {
                     ApproxLatitude = g.Latitude,
-                    ApproxLongitude = g.Longitude
+                    ApproxLongitude = g.Longitude,
+                    Event = _event
                 };
                 _event.Explosions.Add(e);
+                await _dal.AddExplosion(e);
             }
 
         }

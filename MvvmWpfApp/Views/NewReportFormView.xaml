@@ -67,7 +67,7 @@
                              Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1" />
                     <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" Grid.Column="0" Content="Time:" />
                     <!--<DatePicker x:Name="TimeDatePicker" VerticalAlignment="Center" Width="250" SelectedDate="{Binding Report.Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>-->
-                    <xctk:DateTimePicker x:Name="TimeDatePicker" Format="YearMonth" CalendarWidth="400"
+                    <xctk:DateTimePicker x:Name="TimeDatePicker" CalendarWidth="400"
                                          VerticalAlignment="Center" Width="250"
                                          Value="{Binding Report.Time, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                                          Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="1" />
