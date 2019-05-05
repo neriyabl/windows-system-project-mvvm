@@ -78,10 +78,12 @@ namespace QuickType
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Result result)
+            if (value is Result)
             {
-                if (parameter is Report report)
+                Result result = value as Result;
+                if (parameter is Report)
                 {
+                    Report report = parameter as Report;
                     report.Address = result.ToString();
                     report.Latitude = result.Position[0];
                     report.Longitude = result.Position[1];
