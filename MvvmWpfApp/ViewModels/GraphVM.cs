@@ -11,6 +11,7 @@ using BE;
 using System.ComponentModel;
 using MvvmWpfApp.Annotations;
 using System.Runtime.CompilerServices;
+using System.Device.Location;
 
 namespace MvvmWpfApp.ViewModels
 {
@@ -23,7 +24,18 @@ namespace MvvmWpfApp.ViewModels
         public RelayCommand<string> SelectedEventsComand { get; set; }
         public string Title { get; private set; }
 
-        public IList<DataPoint> Points { get; private set; }
+        public IList<DataPoint> Points
+        {
+            get
+            {
+                return (from explosion in GraphModel.Explosions
+                        select new DataPoint(GraphModel.Explosions.IndexOf(explosion),
+                            new GeoCoordinate(explosion.ApproxLatitude, explosion.ApproxLongitude)
+                            .GetDistanceTo(
+                                new GeoCoordinate(explosion.RealLatitude, explosion.RealLongitude)
+                                ))).ToList();
+            }
+        }
         public GraphVM()
         {
             GraphModel = new GraphModel();
@@ -47,15 +59,25 @@ namespace MvvmWpfApp.ViewModels
             //TODO: Change to real DataBinding:
 
             this.Title = "Graph";
-            this.Points = new List<DataPoint>
-                              {
-                                  new DataPoint(0, 4),
-                                  new DataPoint(10, 13),
-                                  new DataPoint(20, 15),
-                                  new DataPoint(30, 16),
-                                  new DataPoint(40, 12),
-                                  new DataPoint(50, 12)
-                              };
+            List<DataPoint> list = new List<DataPoint>();
+            foreach (var item in Reports)
+            {
+                double latMiss = 0;
+                double lonMiss = 0;
+
+                list.Add(new DataPoint(latMiss, lonMiss));
+            }
+            //Mock:
+            //this.Points
+                //new List<DataPoint>
+                //              {
+                //                  new DataPoint(0, 4),
+                //                  new DataPoint(10, 13),
+                //                  new DataPoint(20, 15),
+                //                  new DataPoint(30, 16),
+                //                  new DataPoint(40, 12),
+                //                  new DataPoint(50, 12)
+                //              };
 
             ///////////////////////////////////////////////
         }
