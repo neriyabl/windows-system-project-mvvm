@@ -11,12 +11,12 @@ using BL;
 using MvvmWpfApp.Annotations;
 using MvvmWpfApp.Models;
 using MvvmWpfApp.Utils;
+using QuickType;
 
 namespace MvvmWpfApp.ViewModels
 {
     public class NewReportFormVM : INotifyPropertyChanged
     {
-
         public NewReportFormVM()
         {
             FormModel = new NewReportFormModel();
@@ -24,7 +24,7 @@ namespace MvvmWpfApp.ViewModels
             AddReportCommand = new RelayCommand<NewReportFormModel>(formModel =>
             {
                 if (reportModel.Name == "" ||
-                reportModel.Address == "" ||
+                reportModel.Address == null ||
                 reportModel.NoiseIntensity == 0 ||
                 reportModel.NumOfExplosions == 0)
                     return;
@@ -33,9 +33,11 @@ namespace MvvmWpfApp.ViewModels
                 formModel.AddReport();
             },
                 //if have more condition to add report 
-                report => report != null);
+                report =>
+                {
+                    return report != null;
+                });
         }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -52,10 +54,11 @@ namespace MvvmWpfApp.ViewModels
             }
         }
 
+
         private Report reportModel;
         public Report Report
         {
-            get { return reportModel; }
+            get{ return reportModel; }
             set
             {
                 OnPropertyChanged();

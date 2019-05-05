@@ -36,5 +36,10 @@ namespace BE
                 Reports = (from report in Reports select report?.Clone() as Report).ToList(),
             };
         }
+
+        public override string ToString()
+        {
+            return Id + ": " + StartTime;
+        }
     }
 }

@@ -13,9 +13,9 @@ namespace BL
         public List<Report> ReportsList { get; set; }
         public int K { get; set; }
 
-        public KMeans(List<Report> reportsList, int k)
+        public KMeans(ICollection<Report> reportsList, int k)
         {
-            ReportsList = reportsList;
+            ReportsList = reportsList.Cast<Report>().ToList();
             K = k;
         }
 
@@ -23,13 +23,13 @@ namespace BL
         {
             if (ReportsList.Count == 0)
                 return null;
-      
+
             List<GeoCoordinate> clustersIdList = ClustersGenerator();
-           
-            bool isChanged;
+
+            bool isClustersChanged;
             do
             {
-                isChanged = false;
+                isClustersChanged = false;
                 //for each report looking for the closest cluster 
                 for (int i = 0; i < ReportsList.Count; i++)
                 {
@@ -42,49 +42,55 @@ namespace BL
                         if (temp < min)
                         {
                             min = temp;
-                            isChanged = true;
+                            isClustersChanged = true;
                             ReportsList[i].ClusterId = j;
                         }
                     }
 
                 }
 
-                //Recenter the clusters
-                ReportsList.OrderBy(c => c.ClusterId);
-                int id = 0;
-                double clustersLongitudeSum = 0;
-                double clustersLatitudeSum = 0;
-                int counter = 0;
-                for (int i = 0; i < ReportsList.Count; i++)
-                {
-                    if (ReportsList[i].ClusterId == id)
-                    {
-                        clustersLatitudeSum += ReportsList[i].GetCoordinate().Latitude;
-                        clustersLongitudeSum += ReportsList[i].GetCoordinate().Longitude;
-                        counter++;
-                    }
-                    if (ReportsList[i].ClusterId != id)
-                    {
-                        clustersIdList[id].Latitude = clustersLatitudeSum / counter;
-                        clustersIdList[id].Longitude = clustersLongitudeSum / counter;
-                        counter = 0;
-                        clustersLongitudeSum = 0;
-                        clustersLatitudeSum = 0;
-                        i--;
-                        id++;
-                    }
-                }
-
-            } while (isChanged);
+                clustersIdList = RecenterClusters(clustersIdList);
+            } while (isClustersChanged);
 
             return clustersIdList;
+        }
+
+        private List<GeoCoordinate> RecenterClusters(List<GeoCoordinate> clustersIdList)
+        {
+            //Recenter the clusters
+            ReportsList.OrderBy(c => c.ClusterId);
+            int id = 0;
+            double clustersLongitudeSum = 0;
+            double clustersLatitudeSum = 0;
+            int counter = 0;
+            for (int i = 0; i < ReportsList.Count; i++)
+            {
+                if (ReportsList[i].ClusterId == id)
+                {
+                    clustersLatitudeSum += ReportsList[i].GetCoordinate().Latitude;
+                    clustersLongitudeSum += ReportsList[i].GetCoordinate().Longitude;
+                    counter++;
+                }
+                if (ReportsList[i].ClusterId != id)
+                {
+                    clustersIdList[id].Latitude = clustersLatitudeSum / counter;
+                    clustersIdList[id].Longitude = clustersLongitudeSum / counter;
+                    counter = 0;
+                    clustersLongitudeSum = 0;
+                    clustersLatitudeSum = 0;
+                    i--;
+                    id++;
+                }
+            }
+            return clustersIdList;
+
         }
 
         private List<GeoCoordinate> ClustersGenerator()
         {
 
             List<GeoCoordinate> clustersIdList = new List<GeoCoordinate>();
-            
+
             double minLatitude = ReportsList.Min(r => r.Latitude);
             double maxLatitude = ReportsList.Max(r => r.Latitude);
             double minLongitude = ReportsList.Min(r => r.Longitude);

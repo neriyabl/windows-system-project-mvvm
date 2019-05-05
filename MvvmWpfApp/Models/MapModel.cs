@@ -13,7 +13,7 @@ using MvvmWpfApp.Annotations;
 
 namespace MvvmWpfApp.Models
 {
-    public class MapModel: INotifyPropertyChanged
+    public class MapModel : INotifyPropertyChanged
     {
         private readonly IBl _bl = new FactoryBl().GetInstance();
 
@@ -32,11 +32,11 @@ namespace MvvmWpfApp.Models
         {
             GetEvents();
             BackgroundWorker worker = new BackgroundWorker();
-            worker.DoWork += checkNewEvents;
+            worker.DoWork += CheckNewEvents;
             worker.RunWorkerAsync();
         }
 
-        private void checkNewEvents(object sender, DoWorkEventArgs doWorkEventArgs)
+        private void CheckNewEvents(object sender, DoWorkEventArgs doWorkEventArgs)
         {
             while (true)
             {
@@ -45,9 +45,18 @@ namespace MvvmWpfApp.Models
             }
         }
 
-        public void GetEvents()
+        public async void GetEvents()
         {
-            Events = _bl.GetEvents();
+            if (Events.Count == 0)
+            {
+                Events = _bl.GetEvents();
+            }
+            else
+            {
+                var allEvents = await _bl.GetEventsAsync();
+                Events.AddRange(allEvents.Where(e => !Events.Exists(_e => _e.Id == e.Id)));
+                OnPropertyChanged(nameof(Events));
+            }
         }
 
         public async Task<IEnumerable<Report>> GetReports(int eventId)

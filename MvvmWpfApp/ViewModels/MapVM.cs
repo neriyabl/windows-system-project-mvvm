@@ -21,83 +21,82 @@ namespace MvvmWpfApp.ViewModels
     public class MapVM : INotifyPropertyChanged
     {
         public MapModel MapModel { get; set; }
-        public ObservableCollection<string> EventsId { get; set; }
-        public ObservableCollection<string> SelectedEvents { get; set; }
-        public ObservableCollection<Pushpin> LocationList { get; set; }
+        public ObservableCollection<Event> Events
+        {
+            get { return new ObservableCollection<Event>(MapModel.Events); }
+            set { MapModel.Events = new List<Event>(value); }
+        }
+        public ObservableCollection<Event> SelectedEvents { get; set; }
+
+        public ObservableCollection<Pushpin> LocationList
+        {
+            get
+            {
+                return new ObservableCollection<Pushpin>(
+                    Reports.Select(r => new Pushpin()
+                    {
+                        Location = new Location(r.Latitude, r.Longitude)
+                    })
+                    );
+            }
+        }
+
         public ObservableCollection<Report> Reports { get; set; }
 
-        public RelayCommand<string> SelectedEventsComand { get; set; }
+        public RelayCommand<Event> SelectedEventsComand { get; set; }
 
         public MapVM()
         {
             MapModel = new MapModel();
             MapModel.PropertyChanged += (sender, args) =>
             {
-                if (args.PropertyName == "Events")
-                {
-                    App.Current.Dispatcher.Invoke(SetEventsIds);
-                }
+                OnPropertyChanged(nameof(Events));
             };
-            SelectedEvents = new ObservableCollection<string>();
+            SelectedEvents = new ObservableCollection<Event>();
             Reports = new ObservableCollection<Report>();
-            EventsId = new ObservableCollection<string>();
-            EventsId.CollectionChanged += (sender, args) =>
+
+            Events.CollectionChanged += (sender, args) =>
             {
-                OnPropertyChanged("EventsId");
+                OnPropertyChanged(nameof(Events));
             };
 
-            LocationList = new ObservableCollection<Pushpin>();
             LocationList.CollectionChanged += (sender, args) =>
             {
-                OnPropertyChanged("LocationList");
+                OnPropertyChanged(nameof(LocationList));
             };
 
-            SelectedEventsComand = new RelayCommand<string>(SelectedChanged);
+            SelectedEventsComand = new RelayCommand<Event>(SelectedChanged);
 
-            SetEventsIds();
         }
 
-        private void SetEventsIds()
+
+        private void SelectedChanged(object obj)
         {
-            EventsId.Clear();
-            foreach (var _event in MapModel.Events)
+            if (obj is Event @event)
             {
-                EventsId.Add(_event.Id + ": " + _event.StartTime);
+                SelectedChangedAsync(@event);
             }
         }
 
-        private void SelectedChanged(string obj)
+        private async Task SelectedChangedAsync(Event _event)
         {
-            SelectedChangedAsync(obj);
-        }
-
-        private async Task SelectedChangedAsync(string obj)
-        {
-            var pushpin = new Pushpin();
-            var eventId = Convert.ToInt32(obj.Split(':')[0]);
-            if (SelectedEvents.Any(s => s == obj))
+            if (SelectedEvents.All(e => e != _event))
             {
-                SelectedEvents.Remove(obj);
-                foreach (var report in Reports)
+                foreach (var report in Reports.ToArray())
                 {
-                    if (report.Event.Id != eventId) continue;
-                    pushpin = LocationList.FirstOrDefault(p =>
-                        p.Location.Equals(new Location(report.Latitude, report.Longitude)));
-                    LocationList.Remove(pushpin);
-                    Reports.Remove(report);
+                    if (report.Event.Id == _event.Id)
+                        Reports.Remove(report);
                 }
             }
             else
             {
-                var reports = await MapModel.GetReports(eventId);
+                var reports = await MapModel.GetReports(_event.Id);
                 foreach (var report in reports)
                 {
                     Reports.Add(report);
-                    pushpin.Location = new Location(report.Latitude, report.Longitude);
-                    LocationList.Add(pushpin);
-                    SelectedEvents.Add(obj);
                 }
             }
+            OnPropertyChanged(nameof(LocationList));
         }
 
 

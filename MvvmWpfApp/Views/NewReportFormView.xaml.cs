@@ -16,7 +16,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BE;
+using MvvmWpfApp.Controls;
 using MvvmWpfApp.ViewModels;
+using QuickType;
 
 namespace MvvmWpfApp.Views
 {
@@ -30,7 +32,7 @@ namespace MvvmWpfApp.Views
 
         public NewReportFormVM ReportFormVm
         {
-            get { return (NewReportFormVM) GetValue(ReportFormVmProperty); }
+            get { return (NewReportFormVM)GetValue(ReportFormVmProperty); }
             set { SetValue(ReportFormVmProperty, value); }
         }
 
@@ -71,17 +73,26 @@ namespace MvvmWpfApp.Views
             SaveButton.CommandParameter = ReportFormVm.FormModel;
             SaveButton.IsEnabled = false;
             ReportFormVm.PropertyChanged += (sender, args) => InitForm();
+            //AddressTextBox.CompleteVM = new GeoLocationAutoCompleteVM();
         }
 
-        private void SaveEnableCheck(object sender, TextChangedEventArgs e)
+        private void SaveEnableCheck(object sender, RoutedEventArgs routedEventArgs)
         {
             int _;
-            SaveButton.IsEnabled = AddressTextBox.Text != "" &&
+            SaveButton.IsEnabled = AddressTextBox.SelectedLocation != null &&
                                    NameTextBox.Text != "" &&
                                    !(NoiseIntensityTextBox.Text == "0" ||
                                    !int.TryParse(NoiseIntensityTextBox.Text, out _)) &&
                                    !(NumOfExplosionsTextBox.Text == "0" ||
                                    !int.TryParse(NumOfExplosionsTextBox.Text, out _));
+        }
+
+        private void AddressTextBox_OnSelectedChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!(sender is AutoCompleteBox) || e.AddedItems.Count == 0) return;
+            (DataContext as NewReportFormVM).Report.Address = ((Result) e.AddedItems[0]).Title;
+            (DataContext as NewReportFormVM).Report.Latitude = ((Result) e.AddedItems[0])?.Position?[0]??0;
+            (DataContext as NewReportFormVM).Report.Longitude = ((Result) e.AddedItems[0])?.Position?[1]??0;
         }
     }
 }

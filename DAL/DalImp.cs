@@ -101,9 +101,9 @@ namespace DAL
             List<Event> events;
             using (var db = new ProjectContext())
             {
-                events = await (from _event in db.Events
-                                where predicate == null || predicate(_event)
-                                select _event).ToListAsync();
+                events = await db.Events.ToListAsync();
+                if (predicate != null)
+                    events = events.Where((@event => predicate(@event))).ToList();
             }
             return events;
         }
@@ -293,7 +293,7 @@ namespace DAL
             }
             catch (Exception e)
             {
-                return null;
+                throw new Exception(e.Message + $"in Dalimp AddExplosion with the explosion: {explosion}");
             }
         }
 

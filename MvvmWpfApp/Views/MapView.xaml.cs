@@ -50,7 +50,7 @@ namespace MvvmWpfApp
 
         private void PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            DataContext = MapVm;
+            Dispatcher.Invoke(() => DataContext = MapVm);
         }
     }
 }

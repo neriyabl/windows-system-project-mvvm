@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                //
+                throw new Exception(ex.Message + "\nget event in blimp");
             }
             return new List<Event>();
         }
@@ -82,14 +83,64 @@ namespace BL
             }
             else if (events.Count > 1)
             {
-                //TODO check whitch event contain the report time or which is the closest
+                Event closestEvent = events[0]; // base case
+                double tmpInterval, minInterval = Math.Abs((report.Time - closestEvent.StartTime).TotalMinutes); 
+
+                foreach (Event ev in events) // check closest start time
+                {
+                    tmpInterval = Math.Abs((report.Time - ev.StartTime).TotalMinutes);
+                    if (tmpInterval < minInterval)
+                    {
+                        minInterval = tmpInterval;
+                        closestEvent = ev;
+                    }
+                }
+
+                foreach (Event ev in events) // check closest end time
+                {
+                    tmpInterval = Math.Abs((report.Time - ev.EndTime).TotalMinutes);
+                    if (tmpInterval < minInterval)
+                    {
+                        minInterval = tmpInterval;
+                        closestEvent = ev;
+                    }
+                }
+
+                report.Event = closestEvent;
             }
             else
             {
                 report.Event = new Event(report.Time) { StartTime = report.Time };
             }
+
+            UpdateExplosions(report);
+
             return _dal.AddReport(report);
         }
+
+
+        private async void UpdateExplosions(Report newReport)
+        {
+            Event _event = newReport.Event;
+            _event.Reports = await _dal.GetReportsAsync((report => report.Event.Id == _event.Id));
+            _event.Reports.Add(newReport);
+            int averageExplosions = (int)_event.Reports.Average(r => r.NumOfExplosions);
+            KMeans kMeans = new KMeans(_event.Reports, averageExplosions);
+            List<GeoCoordinate> clusters = kMeans.K_Means();
+            foreach (GeoCoordinate g in clusters)
+            {
+                Explosion e = new Explosion
+                {
+                    ApproxLatitude = g.Latitude,
+                    ApproxLongitude = g.Longitude,
+                    Event = _event
+                };
+               // todo: fix this _event.Explosions.Add(e);
+                await _dal.AddExplosion(e);
+            }
+
+        }
+
 
         public void RemoveReport(int id)
         {

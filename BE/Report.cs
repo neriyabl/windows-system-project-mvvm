@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Report: ICloneable
+    public class Report : ICloneable
     {
         [Key]
         public int? Id { get; set; }
@@ -46,7 +46,7 @@ namespace BE
                 NoiseIntensity = NoiseIntensity,
                 NumOfExplosions = NumOfExplosions,
                 Event = Event?.Clone() as Event,
-                ClusterId=ClusterId,
+                ClusterId = ClusterId,
             };
         }
     }
