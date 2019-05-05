@@ -66,8 +66,8 @@
             <!-- Place here your content -->
             <local:NewReportFormView x:Name="ReportFormView" ReportFormVm="{Binding NewReportFormVm}"/>
             <mvvmWpfApp:MapView x:Name="MapView" MapVm="{Binding MapVm}"/>
-            <mvvmWpfApp:GraphView x:Name="GraphView" GraphVm="{Binding GraphVm}" Visibility="Collapsed" MinHeight="500" MinWidth="500"/>
-            <local:ChooseExplosionsView x:Name="ChooseExplosionsView" ChooseExplosionsVm="{Binding ChooseExplosionsVm}" Visibility="Collapsed" MaxHeight="350" MaxWidth="500"/>
+            <local:ChooseExplosionsView x:Name="ChooseExplosionsView" ChooseExplosionsVm="{Binding ChooseExplosionsVm}" Visibility="Collapsed"/>
+            <mvvmWpfApp:GraphView x:Name="GraphView" GraphVm="{Binding GraphVm}" Visibility="Collapsed"/>
         </DockPanel>
     </DockPanel>
 </Window>

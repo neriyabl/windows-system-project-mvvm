@@ -4,34 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:MvvmWpfApp.Views"
              xmlns:viewModels="clr-namespace:MvvmWpfApp.ViewModels"
+             Background="{DynamicResource MaterialDesignPaper}"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Medium"
+             TextElement.FontSize="18"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="380"
-             MaxHeight="250" MaxWidth="380">
+             d:DesignHeight="300" d:DesignWidth="540">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight}">
-        <materialDesign:Card  Margin="10" Padding="2" VerticalAlignment="Stretch">
+        <materialDesign:Card  Margin="10" Padding="2">
             <Grid Margin="3" d:DataContext="{d:DesignInstance viewModels:ChooseExplosionsVM}">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label x:Name="EventLabel" Margin="10" Content="Choose event from list:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
-                <ComboBox x:Name="EventsComboBox" Margin="10" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Events}" SelectionChanged="EventsComboBox_SelectionChanged"/>
-                <Label x:Name="ExplosionLabel" Margin="10" Content="Choose explosion from list:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
-                <ComboBox x:Name="ExplosionsComboBox" Margin="10" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Explosion}"/>
-                <Label x:Name="ApproxAdressLabel" Margin="10" Content="Approximate adress:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-                <TextBlock x:Name="ApproxAdressTblock" Margin="10" Grid.Row="2" Grid.Column="1" Text="{Binding approxAddress}"/>
-                <Label x:Name="RealAdressLabel" Margin="10" Content="Real adress:" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
-                <TextBox x:Name="RealAdressTbox" Margin="10" Grid.Row="3" Grid.Column="1" Text="{Binding realAddress}"/>
-                <Button x:Name="UpdateButton" FontSize="18" Content="Update" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"></Button>
+                <Label x:Name="EventLabel" Margin="3" Content="Choose event from list:" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+                <ComboBox x:Name="EventsComboBox" Margin="3" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Events}" SelectionChanged="EventsComboBox_SelectionChanged"/>
+                <Label x:Name="ExplosionLabel" Margin="3" Content="Choose explosion from list:"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+                <ComboBox x:Name="ExplosionsComboBox" Margin="3" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Explosion}"/>
+                <Label x:Name="ApproxAdressLabel" Margin="3" Content="Approximate adress:"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                <TextBlock x:Name="ApproxAdressTblock" Margin="3" Grid.Row="2" Grid.Column="1" Text="{Binding approxAddress}"/>
+                <Label x:Name="RealAdressLabel" Margin="3" Content="Real adress:"  VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+                <TextBox x:Name="RealAdressTbox" Margin="3" Grid.Row="3" Grid.Column="1" Text="{Binding realAddress}"/>
+                <Separator Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"/>
+                <Button x:Name="UpdateButton" FontSize="18" Content="Update" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3"></Button>
             </Grid>
         </materialDesign:Card>
     </materialDesign:TransitioningContent>

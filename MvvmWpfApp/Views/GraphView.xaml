@@ -15,7 +15,7 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <oxy:Plot Title="{Binding Title}" Grid.Row="0">
+                <oxy:Plot x:Name="Plot" Title="{Binding Title}" Grid.Row="0">
                     <oxy:Plot.Series>
                         <oxy:LineSeries ItemsSource="{Binding Points}"/>
                     </oxy:Plot.Series>
