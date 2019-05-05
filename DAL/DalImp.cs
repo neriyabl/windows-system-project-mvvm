@@ -277,18 +277,22 @@ namespace DAL
             }
             try
             {
-                Explosion resExplosion;
                 using (var db = new ProjectContext())
                 {
-                    resExplosion = db.Explosions.Add(explosion);
                     if (explosion.Event.Id != 0)
                     {
-                        resExplosion.Event.Explosions.Add(resExplosion);
-                        db.Events.Attach(resExplosion.Event);
+                        explosion.Event.Explosions = null;
+                        explosion.Event.Reports = null;
+                        db.Explosions.Add(explosion);
+                        db.Events.Attach(explosion.Event);
+                    }
+                    else
+                    {
+                        throw new Exception("explosion has no event");
                     }
                     await db.SaveChangesAsync(); // waits for "SaveChangesAsync" to be completed
                 }
-                if (resExplosion.Id != null) return explosion;
+                if (explosion.Id != null) return explosion;
                 throw new Exception("id not updated wen the explosion saved");
             }
             catch (Exception e)
@@ -312,10 +316,10 @@ namespace DAL
 
         public async void RemoveExplosion(int? explosionId)
         {
-            var explosionToRemove = await GetExplosions(exp => exp.Id == explosionId);
-            if (explosionToRemove == null || explosionToRemove.Count == 0) return;
             using (var db = new ProjectContext())
             {
+                var explosionToRemove = db.Explosions.Where(exp => exp.Id == explosionId).ToList();
+                if (explosionToRemove.Count == 0) return;
                 db.Explosions.Remove(explosionToRemove.First());
                 await db.SaveChangesAsync();
             }

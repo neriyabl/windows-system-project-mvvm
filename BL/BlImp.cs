@@ -84,7 +84,7 @@ namespace BL
             else if (events.Count > 1)
             {
                 Event closestEvent = events[0]; // base case
-                double tmpInterval, minInterval = Math.Abs((report.Time - closestEvent.StartTime).TotalMinutes); 
+                double tmpInterval, minInterval = Math.Abs((report.Time - closestEvent.StartTime).TotalMinutes);
 
                 foreach (Event ev in events) // check closest start time
                 {
@@ -113,15 +113,27 @@ namespace BL
                 report.Event = new Event(report.Time) { StartTime = report.Time };
             }
 
+            var res = _dal.AddReport(report);
             UpdateExplosions(report);
 
-            return _dal.AddReport(report);
+            return res;
         }
 
 
         private async void UpdateExplosions(Report newReport)
         {
             Event _event = newReport.Event;
+            var explotions = await _dal.GetExplosions(e => e.Event.Id == _event.Id);
+
+            //chsck if have real location
+            if (explotions.Count > 0 && explotions.All(e => e.RealLatitude > 0))
+                return;
+
+            //remove the last approximate explosions
+            foreach (var explotion in explotions.ToArray())
+            {
+                _dal.RemoveExplosion(explotion.Id);
+            }
             _event.Reports = await _dal.GetReportsAsync((report => report.Event.Id == _event.Id));
             _event.Reports.Add(newReport);
             int averageExplosions = (int)_event.Reports.Average(r => r.NumOfExplosions);
@@ -135,7 +147,6 @@ namespace BL
                     ApproxLongitude = g.Longitude,
                     Event = _event
                 };
-               // todo: fix this _event.Explosions.Add(e);
                 await _dal.AddExplosion(e);
             }
 
