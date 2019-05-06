@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Threading;
 using BE;
 using Microsoft.Maps.MapControl.WPF;
@@ -32,16 +33,25 @@ namespace MvvmWpfApp.ViewModels
         {
             get
             {
-                return new ObservableCollection<Pushpin>(
+                var a = new ObservableCollection<Pushpin>(
                     Reports.Select(r => new Pushpin()
                     {
                         Location = new Location(r.Latitude, r.Longitude)
-                    })
-                    );
+                    }));
+                var b = new ObservableCollection<Pushpin>(Explosions.Select(e => new Pushpin()
+                {
+                    Location = new Location(e.ApproxLatitude, e.ApproxLongitude),
+                    Background = Brushes.Red 
+                }));
+                var c = a.ToList();
+                c.AddRange(b);
+                return new ObservableCollection<Pushpin>(c);
             }
         }
 
         public ObservableCollection<Report> Reports { get; set; }
+
+        public ObservableCollection<Explosion> Explosions { get; set; }
 
         public RelayCommand<Event> SelectedEventsComand { get; set; }
 
@@ -54,6 +64,7 @@ namespace MvvmWpfApp.ViewModels
             };
             SelectedEvents = new ObservableCollection<Event>();
             Reports = new ObservableCollection<Report>();
+            Explosions = new ObservableCollection<Explosion>();
 
             Events.CollectionChanged += (sender, args) =>
             {
@@ -88,13 +99,25 @@ namespace MvvmWpfApp.ViewModels
                     if (report.Event.Id == _event.Id)
                         Reports.Remove(report);
                 }
+                foreach (var explosion in Explosions.ToArray())
+                {
+                    if (explosion.Event.Id == _event.Id)
+                    {
+                        Explosions.Remove(explosion);
+                    }
+                }
             }
             else
             {
                 var reports = await MapModel.GetReports(_event.Id);
+                var explosions = await MapModel.GetExplosions(_event.Id);
                 foreach (var report in reports)
                 {
                     Reports.Add(report);
+                }
+                foreach (var explosion in explosions)
+                {
+                    Explosions.Add(explosion);
                 }
             }
             OnPropertyChanged(nameof(LocationList));

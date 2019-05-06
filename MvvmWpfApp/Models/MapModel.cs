@@ -64,6 +64,11 @@ namespace MvvmWpfApp.Models
             return await _bl.GetReportsAsync(r => r.Event.Id == eventId);
         }
 
+        public async Task<IEnumerable<Explosion>> GetExplosions(int eventId)
+        {
+            return await _bl.GetExplosions(e => e.Event.Id == eventId);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -71,5 +76,7 @@ namespace MvvmWpfApp.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        
     }
 }

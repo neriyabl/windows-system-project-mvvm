@@ -15,7 +15,7 @@ namespace BL
 
         public KMeans(ICollection<Report> reportsList, int k)
         {
-            ReportsList = reportsList.Cast<Report>().ToList();
+            ReportsList = reportsList.ToList();
             K = k;
         }
 
@@ -27,6 +27,7 @@ namespace BL
             List<GeoCoordinate> clustersIdList = ClustersGenerator();
 
             bool isClustersChanged;
+            var counter = 0;
             do
             {
                 isClustersChanged = false;
@@ -48,8 +49,12 @@ namespace BL
                     }
 
                 }
-
+                counter++;
                 clustersIdList = RecenterClusters(clustersIdList);
+                if (counter == 100)
+                {
+                    break;
+                }
             } while (isClustersChanged);
 
             return clustersIdList;
@@ -58,7 +63,7 @@ namespace BL
         private List<GeoCoordinate> RecenterClusters(List<GeoCoordinate> clustersIdList)
         {
             //Recenter the clusters
-            ReportsList.OrderBy(c => c.ClusterId);
+            ReportsList = ReportsList.OrderBy(c => c.ClusterId).ToList();
             int id = 0;
             double clustersLongitudeSum = 0;
             double clustersLatitudeSum = 0;
@@ -71,7 +76,7 @@ namespace BL
                     clustersLongitudeSum += ReportsList[i].GetCoordinate().Longitude;
                     counter++;
                 }
-                if (ReportsList[i].ClusterId != id)
+                else if (ReportsList[i].ClusterId != id)
                 {
                     clustersIdList[id].Latitude = clustersLatitudeSum / counter;
                     clustersIdList[id].Longitude = clustersLongitudeSum / counter;
@@ -82,6 +87,8 @@ namespace BL
                     id++;
                 }
             }
+            clustersIdList[id].Latitude = clustersLatitudeSum / counter;
+            clustersIdList[id].Longitude = clustersLongitudeSum / counter;
             return clustersIdList;
 
         }
@@ -98,7 +105,7 @@ namespace BL
 
             for (int i = 0; i < K; i++)
             {
-                Random rand = new Random();
+                Random rand = new Random(i);
                 double latitude = minLatitude + rand.NextDouble() * (maxLatitude - minLatitude);
                 double longitude = minLongitude + rand.NextDouble() * (maxLongitude - minLongitude);
                 GeoCoordinate coordinate = new GeoCoordinate(latitude, longitude);
