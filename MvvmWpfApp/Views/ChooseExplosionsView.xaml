@@ -26,17 +26,23 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label x:Name="EventLabel" Margin="3" Content="Choose event from list:" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
                 <ComboBox x:Name="EventsComboBox" Margin="3" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Events}" SelectionChanged="EventsComboBox_SelectionChanged"/>
                 <Label x:Name="ExplosionLabel" Margin="3" Content="Choose explosion from list:"  VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
-                <ComboBox x:Name="ExplosionsComboBox" Margin="3" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Explosion}"/>
-                <Label x:Name="ApproxAdressLabel" Margin="3" Content="Approximate adress:"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
-                <TextBlock x:Name="ApproxAdressTblock" Margin="3" Grid.Row="2" Grid.Column="1" Text="{Binding approxAddress}"/>
-                <Label x:Name="RealAdressLabel" Margin="3" Content="Real adress:"  VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
-                <TextBox x:Name="RealAdressTbox" Margin="3" Grid.Row="3" Grid.Column="1" Text="{Binding realAddress}"/>
-                <Separator Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"/>
-                <Button x:Name="UpdateButton" FontSize="18" Content="Update" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3"></Button>
+                <ComboBox x:Name="ExplosionsComboBox" Margin="3" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding _Explosion}"/>
+                <Label x:Name="ApproxLatLabel" Margin="3" Content="Approximate Latitude:"  VerticalAlignment="Center" Grid.Row="2" Grid.Column="0"/>
+                <TextBlock x:Name="ApproxLatTblock" Margin="3" Grid.Row="2" Grid.Column="1" Text="{Binding approxLat}"/>
+                <Label x:Name="ApproxLonLabel" Margin="3" Content="Approximate Longtitude:"  VerticalAlignment="Center" Grid.Row="3" Grid.Column="0"/>
+                <TextBlock x:Name="ApproxLonTblock" Margin="3" Grid.Row="3" Grid.Column="1" Text="{Binding approxLon}"/>
+                <Label x:Name="RealLatLabel" Margin="3" Content="Real Latitude:"  VerticalAlignment="Center" Grid.Row="4" Grid.Column="0"/>
+                <TextBox x:Name="RealLatTbox" Margin="3" Grid.Row="4" Grid.Column="1" Text="{Binding realLat}"/>
+                <Label x:Name="RealLonLabel" Margin="3" Content="Real Longtitude:"  VerticalAlignment="Center" Grid.Row="5" Grid.Column="0"/>
+                <TextBox x:Name="RealLonTbox" Margin="3" Grid.Row="5" Grid.Column="1" Text="{Binding realLon}"/>
+                <Separator Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6"/>
+                <Button x:Name="UpdateButton" FontSize="18" Content="Update" Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="3"></Button>
             </Grid>
         </materialDesign:Card>
     </materialDesign:TransitioningContent>

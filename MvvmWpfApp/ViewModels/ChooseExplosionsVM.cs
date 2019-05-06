@@ -18,16 +18,25 @@ namespace MvvmWpfApp.ViewModels
         public ChooseExplosionsModel chooseExplosionsModel { get; set; }
         public ObservableCollection<Explosion> ExplosionsFromEvent { get; set; }
         public Event Event { get; set; }
-        public Explosion Explosion { get; set; }
-        
-        public string approxAddress
+        public Explosion _Explosion { get; set; }
+
+        public string approxLon
         {
-            get { return "Approximate Adddress"; }
+            get { return _Explosion!=null? Convert.ToString(_Explosion.ApproxLongitude): "0"; }
+        }
+        public string approxLat
+        {
+            get { return _Explosion != null ? Convert.ToString(_Explosion.ApproxLatitude) : "0"; }
         }
 
-        public string realAddress
+        public string realLon
         {
-            get { return "Real Adddress"; }
+            get { return _Explosion != null ? Convert.ToString(_Explosion.RealLongitude) : "0"; }
+            set { }
+        }
+        public string realLat
+        {
+            get { return _Explosion != null ? Convert.ToString(_Explosion.RealLatitude) : "0"; }
             set { }
         }
 
