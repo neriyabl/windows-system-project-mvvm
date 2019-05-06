@@ -201,6 +201,11 @@ namespace BL
             return _dal.GetExplosions(predicate);
         }
 
+        public List<Explosion> GetExplosionsSync()
+        {
+            return _dal.GetExplosionsSync();
+        }
+
         public Explosion GetExplosion(int? id)
         {
             return _dal.GetExplosions(x => x.Id == id).Result.FirstOrDefault();

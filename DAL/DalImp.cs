@@ -269,6 +269,14 @@ namespace DAL
             return explosion;
         }
 
+        public List<Explosion> GetExplosionsSync()
+        {
+            using (var db = new ProjectContext())
+            {
+                return db.Explosions.ToList();
+            }
+        }
+
         public async Task<Explosion> AddExplosion(Explosion explosion)
         {
             if (explosion.Id != null && GetExplosions(exp => exp.Id == explosion.Id) != null)

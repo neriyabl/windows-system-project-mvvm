@@ -32,7 +32,9 @@ namespace BL
         void RemoveExplosion(int id);
         void UpdateExplosion(Explosion explosion);
         Task<List<Explosion>> GetExplosions(Predicate<Explosion> predicate = null);
+        List<Explosion> GetExplosionsSync();
         Explosion GetExplosion(int? id);
         #endregion
+
     }
 }

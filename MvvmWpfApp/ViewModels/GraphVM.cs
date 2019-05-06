@@ -20,21 +20,24 @@ namespace MvvmWpfApp.ViewModels
         public GraphModel GraphModel { get; set; }
         public ObservableCollection<string> EventsId { get; set; }
         public ObservableCollection<Report> Reports { get; set; }
+        public ObservableCollection<Explosion> Explosions { get; set; }
 
         public RelayCommand<string> SelectedEventsComand { get; set; }
         public string Title { get; private set; }
 
         public IList<DataPoint> Points
         {
-            get
-            {
-                return (from explosion in GraphModel.Explosions
-                        select new DataPoint(GraphModel.Explosions.IndexOf(explosion),
-                            new GeoCoordinate(explosion.ApproxLatitude, explosion.ApproxLongitude)
-                            .GetDistanceTo(
-                                new GeoCoordinate(explosion.RealLatitude, explosion.RealLongitude)
-                                ))).ToList();
-            }
+            //get
+            //{
+            //    return (from explosion in GraphModel.Explosions
+            //            select new DataPoint(GraphModel.Explosions.IndexOf(explosion),
+            //                new GeoCoordinate(explosion.ApproxLatitude, explosion.ApproxLongitude)
+            //                .GetDistanceTo(
+            //                    new GeoCoordinate(explosion.RealLatitude, explosion.RealLongitude)
+            //                    ))).ToList();
+            //}
+            get;
+            set;
         }
         public GraphVM()
         {
@@ -54,30 +57,39 @@ namespace MvvmWpfApp.ViewModels
             };
 
             SetEventsIds();
-
+            Explosions = new ObservableCollection<Explosion>(GraphModel.Explosions);
+            var points = new List<DataPoint>();
+            foreach (var explosion in Explosions)
+            {
+                if (explosion.RealLatitude == 0)
+                {
+                    points.Add(new DataPoint(Explosions.IndexOf(explosion), 0));
+                }
+                else
+                {
+                    var d1 = new GeoCoordinate(explosion.ApproxLatitude, explosion.ApproxLongitude);
+                    var d2 = new GeoCoordinate(explosion.RealLatitude, explosion.RealLongitude);
+                    points.Add(new DataPoint(Explosions.IndexOf(explosion), d1.GetDistanceTo(d2)));
+                }
+            }
+            Points = points;
             ///////////////////////////////////////////////
             //TODO: Change to real DataBinding:
 
-            this.Title = "Graph";
+            this.Title = "Analitics Graph";
             List<DataPoint> list = new List<DataPoint>();
-            foreach (var item in Reports)
-            {
-                double latMiss = 0;
-                double lonMiss = 0;
 
-                list.Add(new DataPoint(latMiss, lonMiss));
-            }
             //Mock:
-            //this.Points
-                //new List<DataPoint>
-                //              {
-                //                  new DataPoint(0, 4),
-                //                  new DataPoint(10, 13),
-                //                  new DataPoint(20, 15),
-                //                  new DataPoint(30, 16),
-                //                  new DataPoint(40, 12),
-                //                  new DataPoint(50, 12)
-                //              };
+            //this.Points =
+            //    new List<DataPoint>
+            //                  {
+            //                      new DataPoint(0, 4),
+            //                      new DataPoint(10, 13),
+            //                      new DataPoint(20, 15),
+            //                      new DataPoint(30, 16),
+            //                      new DataPoint(40, 12),
+            //                      new DataPoint(50, 12)
+            //                  };
 
             ///////////////////////////////////////////////
         }

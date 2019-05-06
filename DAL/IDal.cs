@@ -32,6 +32,7 @@ namespace DAL
 
         Task<List<Explosion>> GetExplosions(Predicate<Explosion> predicate = null);
         Task<Explosion> GetExplosionByEventId(int? eventId);
+        List<Explosion> GetExplosionsSync();
         Task<Explosion> AddExplosion(Explosion explosion);
         void UpdateExplosion(Explosion explosion);
         void RemoveExplosion(int? explosionId);

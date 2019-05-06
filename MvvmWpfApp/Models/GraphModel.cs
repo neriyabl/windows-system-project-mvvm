@@ -39,6 +39,7 @@ namespace MvvmWpfApp.Models
         public GraphModel()
         {
             GetEvents();
+            GetExplosions();
             BackgroundWorker worker = new BackgroundWorker();
             worker.DoWork += checkNewEvents;
             worker.RunWorkerAsync();
@@ -54,9 +55,9 @@ namespace MvvmWpfApp.Models
             }
         }
 
-        private async void GetExplosions()
+        private void GetExplosions()
         {
-            Explosions = await _bl.GetExplosions();
+            Explosions = _bl.GetExplosionsSync();
         }
 
         public void GetEvents()
