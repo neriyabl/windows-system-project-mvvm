@@ -59,9 +59,9 @@
                              Text="{Binding Report.NoiseIntensity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                              Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1" />
                     <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" Grid.Column="0"
-                           Content="Num Of Explosions:" />
+                           Content="Num Of _Explosions:" />
                     <TextBox x:Name="NumOfExplosionsTextBox" TextChanged="SaveEnableCheck"
-                             materialDesign:HintAssist.Hint="Enter Num Of Explosions Here" Width="250"
+                             materialDesign:HintAssist.Hint="Enter Num Of _Explosions Here" Width="250"
                              VerticalAlignment="Center"
                              Text="{Binding Report.NumOfExplosions, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"
                              Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1" />
